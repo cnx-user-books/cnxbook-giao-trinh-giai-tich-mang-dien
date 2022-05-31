@@ -1,0 +1,2875 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Đại số ma trận ứng dụng trong giải tích mạng</title>
+  <metadata>
+  <md:content-id>m29962</md:content-id><md:title>Đại số ma trận ứng dụng trong giải tích mạng</md:title>
+  <md:abstract>Trong chương này ta nhắc lại một số kiến thức về đại số ma trận thông thường được ứng dụng trong giải tích mạng.</md:abstract>
+  <md:uuid>3870eeb4-274b-4d1b-a9cd-5c23c5ec0c0c</md:uuid>
+</metadata>
+
+<content>
+    <section id="id-354624180912">
+      <title>ĐỊNH NGHĨA VÀ CÁC KHÁI NIỆM CƠ BẢN:</title>
+      <section id="id-911228031993">
+        <title>Kí hiệu ma trận:</title>
+        <para id="id5968904">Ma trận chữ nhật A kích thước m x n là 1 bảng gồm m hàng và n cột có dạng sau:</para>
+        <para id="id5968913">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mtable>
+                        <m:mtr>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mi>A</m:mi>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mrow/>
+                              <m:mrow>
+                                <m:mo stretchy="false">∣</m:mo>
+                                <m:mtable>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mtext>11</m:mtext>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mtext>12</m:mtext>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mn>1n</m:mn>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mtext>21</m:mtext>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mtext>22</m:mtext>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mn>2n</m:mn>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mi fontstyle="italic">m1</m:mi>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mi fontstyle="italic">m2</m:mi>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mtext>.</m:mtext>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:msub>
+                                          <m:mi>a</m:mi>
+                                          <m:mstyle fontsize="8pt">
+                                            <m:mrow>
+                                              <m:mstyle fontstyle="italic">
+                                                <m:mrow>
+                                                  <m:mtext>mn</m:mtext>
+                                                </m:mrow>
+                                              </m:mstyle>
+                                            </m:mrow>
+                                          </m:mstyle>
+                                        </m:msub>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                </m:mtable>
+                                <m:mo stretchy="false">∣</m:mo>
+                              </m:mrow>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                        </m:mtr>
+                      </m:mtable>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mfenced open="[" close="]">
+                        <m:msub>
+                          <m:mi>a</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mi>i</m:mi>
+                                <m:mi/>
+                                <m:mi>j</m:mi>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mfenced>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} #  "."  "."  "."  {} # a rSub { size 8{1n} }  {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} }  {} #  "."  "."  "."  {} # a rSub { size 8{2n} }  {} ##
+ "."  "."  "."  {} #  "."  "."  "."  {} #  "."  "."  "."  {} #  "."  "."  "."  {} ##
+a rSub { size 8{m1} }  {} # a rSub { size 8{m2} }  {} #  "."  "."  "."  {} # a rSub { size 8{ ital "mn"} } {}
+}  rline {}
+} = left [a rSub { size 8{i`j} }  right ]} {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5983051">Nếu m = 1 và n &gt;1 thì A gọi là ma trận hàng hoặc vectơ hàng.</para>
+        <para id="id5983062">Ngược lại n = 1 và m &gt; 1 thì A gọi là ma trận cột hoặc vectơ cột.</para>
+        <para id="id5983074">Ví dụ:
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>A</m:mi><m:mrow><m:mi/><m:mo stretchy="false">=</m:mo><m:mi/></m:mrow><m:mrow><m:mo stretchy="false">∣</m:mo><m:mrow><m:mi/><m:mtable><m:mtr><m:mtd><m:mrow><m:mn>2</m:mn><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mn>1</m:mn><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mn>3</m:mn></m:mtd></m:mtr></m:mtable><m:mi/></m:mrow><m:mo stretchy="false">∣</m:mo></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{A`=`` lline ` matrix {
+2 {} ##
+1 {} ##
+3
+} ` rline } {}</m:annotation></m:semantics></m:math> và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>A</m:mi><m:mrow><m:mi/><m:mo stretchy="false">=</m:mo><m:mi/></m:mrow><m:mrow><m:mo stretchy="false">∣</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:mn>2</m:mn><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mn>3</m:mn><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mn>1</m:mn><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">∣</m:mo></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{A`=` lline  matrix {
+2 {} # 3 {} # 1{}
+}  rline } {}</m:annotation></m:semantics></m:math></para>
+      </section>
+      <section id="id-772454408275">
+        <title>Các dạng ma trận:</title>
+        <para id="id5983259">Ma trận vuông: Là ma trận có số hàng bằng số cột (m = n).</para>
+        <para id="id5983270">Ví dụ:</para>
+        <para id="id5983277">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>11</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>12</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>13</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>21</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>22</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>23</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>31</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>32</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>33</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} # a rSub { size 8{"13"} }  {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} }  {} # a rSub { size 8{"23"} }  {} ##
+a rSub { size 8{"31"} }  {} # a rSub { size 8{"32"} }  {} # a rSub { size 8{"33"} } {}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5983469">Ma trận tam giác trên: Là ma trận vuông mà các phần tử dưới đường chéo chính aị j của ma trận bằng 0 với i &gt; j.</para>
+        <para id="id5983488">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>11</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>12</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>13</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>22</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>23</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>33</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} # a rSub { size 8{"13"} }  {} ##
+0 {} # a rSub { size 8{"22"} }  {} # a rSub { size 8{"23"} }  {} ##
+0 {} # 0 {} # a rSub { size 8{"33"} } {}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5983657">Ma trận tam giác dưới: Là ma trận vuông mà các phần tử trên đường chéo chính aịj của ma trận bằng 0 với i &lt; j.</para>
+        <para id="id5983676">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>11</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>21</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>22</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>31</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>32</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>33</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # 0 {} # 0 {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} }  {} # 0 {} ##
+a rSub { size 8{"31"} }  {} # a rSub { size 8{"32"} }  {} # a rSub { size 8{"33"} } {}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5983841">Ma trận đường chéo: Là ma trận vuông nếu tất cả các phần tử trên đường chéo chính khác 0, còn các phần tử khác ngoài đường chéo chính của ma trận bằng 0 (aịj = 0 với 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>i</m:mi><m:mo stretchy="false">≠</m:mo><m:mi>j</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{i &lt;&gt; j} {}</m:annotation></m:semantics></m:math>).</para>
+        <para id="id5983916">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>11</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>22</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>33</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # 0 {} # 0 {} ##
+0 {} # a rSub { size 8{"22"} }  {} # 0 {} ##
+0 {} # 0 {} # a rSub { size 8{"33"} } {}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5984060">Ma trận đơn vị: Là ma trận vuông mà tất cả các phần tử trên đường chéo chính của ma trận bằng 1 còn tất cả các phần tử khác bằng 0 (aij = 1 với i = j và aịj = 0 với 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>i</m:mi><m:mo stretchy="false">≠</m:mo><m:mi>j</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{i &lt;&gt; j} {}</m:annotation></m:semantics></m:math>).</para>
+        <para id="id5984140">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>U</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mrow>
+                                <m:mi/>
+                                <m:mtable>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mn>1</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>0</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>0</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mn>0</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>1</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>0</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mn>0</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>0</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>1</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                </m:mtable>
+                                <m:mi/>
+                              </m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+U {} # = lline `` matrix {
+1 {} # `0 {} # `0 {} ##
+0 {} # `1 {} # `0 {} ##
+0 {} # `0 {} # `1{}
+} `` rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5984268">Ma trận không: Là ma trận mà tất cả các phần tử của ma trận bằng 0.</para>
+        <para id="id5984279">Ma trận chuyển vị: Là ma trận mà các phần tử aịj = aji (đổi hàng thành cột và ngược lại).</para>
+        <para id="id5984303"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mtable><m:mtr><m:mtd><m:mrow><m:mi>A</m:mi><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow><m:mo stretchy="false">∣</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>31</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>32</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">∣</m:mo></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} }  {} ##
+a rSub { size 8{"31"} }  {} # a rSub { size 8{"32"} } {}
+}  rline {}
+} } {}</m:annotation></m:semantics></m:math> và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mtable><m:mtr><m:mtd><m:mrow><m:msup><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>T</m:mi></m:mrow></m:mstyle></m:msup><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow><m:mo stretchy="false">∣</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>31</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>32</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">∣</m:mo></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A rSup { size 8{T} }  {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"21"} }  {} # a rSub { size 8{"31"} }  {} ##
+a rSub { size 8{"12"} }  {} # a rSub { size 8{"22"} }  {} # a rSub { size 8{"32"} } {}
+}  rline {}
+} } {}</m:annotation></m:semantics></m:math></para>
+        <para id="id5984614">Cho ma trận A thì ma trận chuyển vị kí hiệu là At, AT hoặc A’</para>
+        <para id="id5984632">Ma trận đối xứng: Là ma trận vuông có các cặp phần tử đối xứng qua đường chéo chính bằng nhau aịj = aji.</para>
+        <para id="id5984655">Ví dụ:</para>
+        <para id="id5984660">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mrow>
+                                <m:mi/>
+                                <m:mtable>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mn>1</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>5</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>3</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mn>5</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>2</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>6</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                  <m:mtr>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mn>3</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>6</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                    <m:mtd>
+                                      <m:mrow>
+                                        <m:mi/>
+                                        <m:mn>4</m:mn>
+                                        <m:mrow/>
+                                      </m:mrow>
+                                    </m:mtd>
+                                  </m:mtr>
+                                </m:mtable>
+                                <m:mi/>
+                              </m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline `` matrix {
+1 {} # `5 {} # `3 {} ##
+5 {} # `2 {} # `6 {} ##
+3 {} # `6 {} # `4{}
+} `` rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5984788">Chuyển vị ma trận đối xứng thì AT = A, nghĩa là ma trận không thay đổi.</para>
+        <para id="id5984800">Ma trận xiên - phản đối xứng: Là ma trận vuông có A = - AT. Các phần tử ngoài đường chéo chính tương ứng bằng giá trị đối của nó (aịj = - aji) và các phần tử trên đường chéo chính bằng 0.</para>
+        <para id="id5984835">Ví dụ:</para>
+        <para id="id5984840">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>5</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mo stretchy="false">−</m:mo>
+                                        <m:mn>3</m:mn>
+                                      </m:mrow>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mo stretchy="false">−</m:mo>
+                                        <m:mn>5</m:mn>
+                                      </m:mrow>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>6</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>3</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mo stretchy="false">−</m:mo>
+                                        <m:mn>6</m:mn>
+                                      </m:mrow>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+0 {} # 5 {} #  - 3 {} ##
+ - 5 {} # 0 {} # 6 {} ##
+3 {} #  - 6 {} # 0{}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id5984976">Ma trận trực giao: Là ma trận có ma trận chuyển vị chính là nghịch đảo của nó. (AT .A = U = A .AT với A là ma trận vuông và các phần tử là số thực).</para>
+        <para id="id5985001">Ma trận phức liên hợp: Là ma trận nếu thế phần tử a + jb bởi a - jb thì ma trận mới A* là ma trận phức liên hợp.</para>
+        <para id="id5985022">Cho ma trận A thì ma trận phức liên hợp là A*</para>
+        <para id="id5985032"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>A</m:mi><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">∣</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:mi fontstyle="italic">j3</m:mi><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mn>5</m:mn><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow><m:mn>4</m:mn><m:mo stretchy="false">+</m:mo><m:mi fontstyle="italic">j2</m:mi></m:mrow><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mi fontstyle="italic">j1</m:mi></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">∣</m:mo></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{A= lline  matrix {
+j3 {} # 5 {} ##
+4+j2 {} # 1+j1{}
+}  rline } {}</m:annotation></m:semantics></m:math> và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mtable><m:mtr><m:mtd><m:mrow><m:msup><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow/></m:mrow></m:mstyle></m:msup><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow><m:mo stretchy="false">∣</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:mi fontstyle="italic">j3</m:mi></m:mrow><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mn>5</m:mn><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow><m:mn>4</m:mn><m:mo stretchy="false">−</m:mo><m:mi fontstyle="italic">j2</m:mi></m:mrow><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">−</m:mo><m:mi fontstyle="italic">j1</m:mi></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">∣</m:mo></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A rSup { size 8{ * } }  {} # = lline  matrix {
+ - j3 {} # 5 {} ##
+4 - j2 {} # 1 - j1{}
+}  rline {}
+} } {}</m:annotation></m:semantics></m:math></para>
+        <para id="id6000598">-Nếu tất cả các phần tử của A là thực, thì A = A*</para>
+        <para id="id6000608">-Nếu tất cả các phần tử của A là ảo, thì A = - A*.</para>
+        <para id="id6000619">Ma trận Hermitian (ma trận phức đối): Là ma trận vuông với các phần tử trên đường chéo chính là số thực còn các cặp phần tử đối xứng qua đường chéo chính là những số phức liên hợp, nghĩa là A = (A*)t.</para>
+        <para id="id6000646">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>4</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mn>2</m:mn>
+                                        <m:mo stretchy="false">−</m:mo>
+                                        <m:mi fontstyle="italic">j3</m:mi>
+                                      </m:mrow>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mn>2</m:mn>
+                                        <m:mo stretchy="false">+</m:mo>
+                                        <m:mi fontstyle="italic">j3</m:mi>
+                                      </m:mrow>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>5</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+4 {} # 2 - j3 {} ##
+2+j3 {} # 5{}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6000756">Ma trận xiên - Hermitian (ma trận xiên - phức đối): Là ma trận vuông với các phần tử trên đường chéo chính bằng 0 hoặc toàn ảo còn các cặp phần tử đối xứng qua đường chéo chính là những số phức, tức A = - (A*)t.</para>
+        <para id="id6000784">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mn>2</m:mn>
+                                        <m:mo stretchy="false">−</m:mo>
+                                        <m:mi fontstyle="italic">j3</m:mi>
+                                      </m:mrow>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mrow>
+                                          <m:mo stretchy="false">−</m:mo>
+                                          <m:mn>2</m:mn>
+                                        </m:mrow>
+                                        <m:mo stretchy="false">−</m:mo>
+                                        <m:mi fontstyle="italic">j3</m:mi>
+                                      </m:mrow>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:mn>0</m:mn>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+0 {} # 2 - j3 {} ##
+ - 2 - j3 {} # 0{}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6000901">Nếu ma trận vuông phức liên hợp có (A*) t. A = U = A. (A*)t thì ma trận A được gọi là ma trận đơn vị. Nếu ma trận đơn vị A với các phần tử là số thực được gọi là ma trận trực giao.</para>
+        <para id="id6000934">Bảng 1.1: Các dạng ma trận.</para>
+        <table id="id6000947" summary="">
+          <tgroup cols="3">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <colspec colnum="3" colname="c3"/>
+            <tbody>
+              <row>
+                <entrytbl cols="2">
+                  <colspec colnum="1" colname="c1"/>
+                  <colspec colnum="2" colname="c2"/>
+                  <tbody>
+                    <row>
+                      <entry>Kí hiệu</entry>
+                      <entry>Dạng ma trận</entry>
+                    </row>
+                    <row>
+                      <entry>A = -AA = AtA = - AtA = A*A = - A*</entry>
+                      <entry>KhôngĐối xứng Xiên-đối xứngThựcHoàn toàn ảo</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entry/>
+                <entrytbl cols="2">
+                  <colspec colnum="1" colname="c1"/>
+                  <colspec colnum="2" colname="c2"/>
+                  <tbody>
+                    <row>
+                      <entry>Kí hiệu</entry>
+                      <entry>Dạng ma trận</entry>
+                    </row>
+                    <row>
+                      <entry>A = (A*)tA = - (A*)tAt A = U(A*)t A = U</entry>
+                      <entry>HermitianXiên- HermitianTrực giaoĐơn vị</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </section>
+    <section id="id-449825863868">
+      <title>CÁC ĐỊNH THỨC:</title>
+      <section id="id-470770396635">
+        <title>Định nghĩa và các tính chất của định thức:</title>
+        <para id="id6001222">Cho hệ 2 phương trình tuyến tính </para>
+        <para id="id6001228">a11x1 + a12x2­ = k1 (1)  (1.1)</para>
+        <para id="id6001274">a21x1 + a22x2­ = k2 (2)</para>
+        <para id="id6001308">Rút x2 từ phương trình (2) thế vào phương trình (1), giải được:</para>
+        <para id="id6001320">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>x</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mfrac>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>22</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>k</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mn>1</m:mn>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:msub>
+                              <m:mi>a</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mtext>12</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                          </m:mrow>
+                          <m:msub>
+                            <m:mi>k</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mn>2</m:mn>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                        </m:mrow>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>11</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>a</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mtext>22</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:msub>
+                              <m:mi>a</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mtext>12</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                          </m:mrow>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>21</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                        </m:mrow>
+                      </m:mfrac>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{x rSub { size 8{1} } = {  {a rSub { size 8{"22"} } k rSub { size 8{1} }  - a rSub { size 8{"12"} } k rSub { size 8{2} } }  over  {a rSub { size 8{"11"} } a rSub { size 8{"22"} }  - a rSub { size 8{"12"} } a rSub { size 8{"21"} } } } } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6001474">Suy ra:</para>
+        <para id="id6001478">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>x</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>2</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mfrac>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>11</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>k</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mn>2</m:mn>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:msub>
+                              <m:mi>a</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mtext>21</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                          </m:mrow>
+                          <m:msub>
+                            <m:mi>k</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mn>1</m:mn>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                        </m:mrow>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>11</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>a</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mtext>22</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:msub>
+                              <m:mi>a</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mtext>12</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                          </m:mrow>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>21</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                        </m:mrow>
+                      </m:mfrac>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{x rSub { size 8{2} } = {  {a rSub { size 8{"11"} } k rSub { size 8{2} }  - a rSub { size 8{"21"} } k rSub { size 8{1} } }  over  {a rSub { size 8{"11"} } a rSub { size 8{"22"} }  - a rSub { size 8{"12"} } a rSub { size 8{"21"} } } } } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6001631">Biểu thức (a11a22 - a12a21) là giá trị định thức của ma trận hệ số A. Trong đó |A| là định thức.</para>
+        <para id="id6001661">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>11</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>12</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>21</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>22</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+ \lline A \lline  {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} } {}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6001795">Giải phương trình (1.1) bằng phương pháp định thức ta có:</para>
+        <para id="id6001802"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>x</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mfrac><m:mrow><m:mo stretchy="false">∣</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">∣</m:mo></m:mrow><m:mrow><m:mo stretchy="false">∣</m:mo><m:mi>A</m:mi><m:mo stretchy="false">∣</m:mo></m:mrow></m:mfrac><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+x rSub { size 8{1} }  {} # = {  { lline  matrix {
+k rSub { size 8{1} }  {} # a rSub { size 8{"12"} }  {} ##
+k rSub { size 8{2} }  {} # a rSub { size 8{"22"} } {}
+}  rline }  over  { lline A rline } } {}
+} = {  {a rSub { size 8{"22"} }  "." `k rSub { size 8{1} }  - a rSub { size 8{"12"} }  "." `k rSub { size 8{2} } }  over  {a rSub { size 8{"11"} }  "." `a rSub { size 8{"22"} }  - a rSub { size 8{"12"} }  "." `a rSub { size 8{"21"} } } } } {}</m:annotation></m:semantics></m:math> và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>x</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mfrac><m:mrow><m:mo stretchy="false">∣</m:mo><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">∣</m:mo></m:mrow><m:mrow><m:mo stretchy="false">∣</m:mo><m:mrow><m:mi>A</m:mi><m:mi/></m:mrow><m:mo stretchy="false">∣</m:mo></m:mrow></m:mfrac><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>k</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+x rSub { size 8{2} }  {} # = {  { lline  matrix {
+a rSub { size 8{"11"} }  {} # k rSub { size 8{1} }  {} ##
+a rSub { size 8{"21"} }  {} # k rSub { size 8{2} } {}
+}  rline }  over  { lline A` rline } } {}
+} = {  {a rSub { size 8{"11"} }  "." `k rSub { size 8{2} }  - a rSub { size 8{"21"} }  "." `k rSub { size 8{1} } }  over  {a rSub { size 8{"11"} }  "." `a rSub { size 8{"22"} }  - a rSub { size 8{"12"} }  "." `a rSub { size 8{"21"} } } } } {}</m:annotation></m:semantics></m:math></para>
+        <list id="id6002323" list-type="bulleted">
+          <item>Tính chất của định thức:</item>
+        </list>
+        <para id="id6002333">a. Giá trị của định thức bằng 0 nếu:</para>
+        <para id="id6002339"> - Tất cả các phần tử của hàng hoặc cột bằng 0.</para>
+        <para id="id6002349">- Các phần tử của 2 hàng (cột) tương ứng bằng nhau.</para>
+        <para id="id6002359">- Một hàng (cột) là tương ứng tỉ lệ của 1 hoặc nhiều hàng (cột).</para>
+        <para id="id6002369">b. Nếu ta đổi chổ 2 hàng của ma trận vuông A cho nhau ta được ma trận vuông B và có det(B) = - det(A).</para>
+        <para id="id6002378">c. Giá trị của định thức không thay đổi nếu:</para>
+        <para id="id6002386">- Tất cả các hàng và cột tương ứng đổi chổ cho nhau. </para>
+        <para id="id6002396">- Cộng thêm k vào 1 hàng (cột) thứ tự tương ứng với các phần tử của hàng (cột) đó.</para>
+        <para id="id6002407">d. Nếu tất cả các phần tử của hàng (cột) nhân với thừa số k, thì giá trị của định thức là được nhân bởi k.</para>
+        <para id="id6002416">e. Tích của các định thức bằng tích của từng định thức. | A.B.C| = |A| .|B| .|C|.</para>
+        <para id="id6002427">f. Định thức tổng khác tổng các định thức. |A + B - C| = |A| + |B| -|C|.</para>
+      </section>
+      <section id="id-589136226114">
+        <title>Định thức con và các phần phụ đại số.</title>
+        <para id="id6002447">Xét định thức:</para>
+        <para id="id6002455">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mtable>
+                      <m:mtr>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mi>A</m:mi>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                        <m:mtd>
+                          <m:mrow>
+                            <m:mrow/>
+                            <m:mrow>
+                              <m:mo stretchy="false">∣</m:mo>
+                              <m:mtable>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>11</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>12</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>13</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>21</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>22</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>23</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                                <m:mtr>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>31</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>32</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                  <m:mtd>
+                                    <m:mrow>
+                                      <m:msub>
+                                        <m:mi>a</m:mi>
+                                        <m:mstyle fontsize="8pt">
+                                          <m:mrow>
+                                            <m:mtext>33</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:msub>
+                                      <m:mrow/>
+                                    </m:mrow>
+                                  </m:mtd>
+                                </m:mtr>
+                              </m:mtable>
+                              <m:mo stretchy="false">∣</m:mo>
+                            </m:mrow>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtd>
+                      </m:mtr>
+                    </m:mtable>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A {} # = lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} # a rSub { size 8{"13"} }  {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} }  {} # a rSub { size 8{"23"} }  {} ##
+a rSub { size 8{"31"} }  {} # a rSub { size 8{"32"} }  {} # a rSub { size 8{"33"} } {}
+}  rline {}
+} } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6002648">Chọn trong định thức này k hàng, k cột bất kỳ với 1  k  n. Các phần tử nằm phía trên kể từ giao của hàng và cột đã chọn tạo thành một định thức cấp k, gọi là định thức con cấp k của A. Bỏ k hàng và k cột đã chọn, các phần tử còn lại tạo thành 1 định thức con bù của định thức A.</para>
+        <para id="id6002676">Phần phụ đại số ứng với phần tử aij của định thức A là định thức con bù có kèm theo dấu (-1)i+j.</para>
+        <para id="id6002697">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mtable>
+                        <m:mtr>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>A</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mtext>21</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mrow/>
+                              <m:mrow/>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                        </m:mtr>
+                      </m:mtable>
+                      <m:mrow>
+                        <m:mo stretchy="false">(</m:mo>
+                        <m:mo stretchy="false">−</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                      <m:msup>
+                        <m:mo stretchy="false">)</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mn>2</m:mn>
+                              <m:mo stretchy="false">+</m:mo>
+                              <m:mn>1</m:mn>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msup>
+                      <m:mi/>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mo stretchy="false">∣</m:mo>
+                          <m:mrow>
+                            <m:mi/>
+                            <m:mtable>
+                              <m:mtr>
+                                <m:mtd>
+                                  <m:mrow>
+                                    <m:msub>
+                                      <m:mi>a</m:mi>
+                                      <m:mstyle fontsize="8pt">
+                                        <m:mrow>
+                                          <m:mtext>12</m:mtext>
+                                        </m:mrow>
+                                      </m:mstyle>
+                                    </m:msub>
+                                    <m:mrow/>
+                                  </m:mrow>
+                                </m:mtd>
+                                <m:mtd>
+                                  <m:mrow>
+                                    <m:msub>
+                                      <m:mi>a</m:mi>
+                                      <m:mstyle fontsize="8pt">
+                                        <m:mrow>
+                                          <m:mtext>13</m:mtext>
+                                        </m:mrow>
+                                      </m:mstyle>
+                                    </m:msub>
+                                    <m:mrow/>
+                                  </m:mrow>
+                                </m:mtd>
+                              </m:mtr>
+                              <m:mtr>
+                                <m:mtd>
+                                  <m:mrow>
+                                    <m:msub>
+                                      <m:mi>a</m:mi>
+                                      <m:mstyle fontsize="8pt">
+                                        <m:mrow>
+                                          <m:mtext>32</m:mtext>
+                                        </m:mrow>
+                                      </m:mstyle>
+                                    </m:msub>
+                                    <m:mrow/>
+                                  </m:mrow>
+                                </m:mtd>
+                                <m:mtd>
+                                  <m:mrow>
+                                    <m:msub>
+                                      <m:mi>a</m:mi>
+                                      <m:mstyle fontsize="8pt">
+                                        <m:mrow>
+                                          <m:mtext>33</m:mtext>
+                                        </m:mrow>
+                                      </m:mstyle>
+                                    </m:msub>
+                                    <m:mrow/>
+                                  </m:mrow>
+                                </m:mtd>
+                              </m:mtr>
+                            </m:mtable>
+                          </m:mrow>
+                          <m:mo stretchy="false">∣</m:mo>
+                        </m:mrow>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mrow>
+                          <m:mo stretchy="false">−</m:mo>
+                          <m:mi/>
+                        </m:mrow>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:mo stretchy="false">∣</m:mo>
+                        <m:mrow>
+                          <m:mi/>
+                          <m:mtable>
+                            <m:mtr>
+                              <m:mtd>
+                                <m:mrow>
+                                  <m:msub>
+                                    <m:mi>a</m:mi>
+                                    <m:mstyle fontsize="8pt">
+                                      <m:mrow>
+                                        <m:mtext>12</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:msub>
+                                  <m:mrow/>
+                                </m:mrow>
+                              </m:mtd>
+                              <m:mtd>
+                                <m:mrow>
+                                  <m:msub>
+                                    <m:mi>a</m:mi>
+                                    <m:mstyle fontsize="8pt">
+                                      <m:mrow>
+                                        <m:mtext>13</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:msub>
+                                  <m:mrow/>
+                                </m:mrow>
+                              </m:mtd>
+                            </m:mtr>
+                            <m:mtr>
+                              <m:mtd>
+                                <m:mrow>
+                                  <m:msub>
+                                    <m:mi>a</m:mi>
+                                    <m:mstyle fontsize="8pt">
+                                      <m:mrow>
+                                        <m:mtext>32</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:msub>
+                                  <m:mrow/>
+                                </m:mrow>
+                              </m:mtd>
+                              <m:mtd>
+                                <m:mrow>
+                                  <m:msub>
+                                    <m:mi>a</m:mi>
+                                    <m:mstyle fontsize="8pt">
+                                      <m:mrow>
+                                        <m:mtext>33</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:msub>
+                                  <m:mrow/>
+                                </m:mrow>
+                              </m:mtd>
+                            </m:mtr>
+                          </m:mtable>
+                        </m:mrow>
+                        <m:mo stretchy="false">∣</m:mo>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A rSub { size 8{"21"} }  {} # ={}{}
+}  \(  - 1 \)  rSup { size 8{2+1} } ` lline ` matrix {
+a rSub { size 8{"12"} }  {} # a rSub { size 8{"13"} }  {} ##
+a rSub { size 8{"32"} }  {} # a rSub { size 8{"33"} } {}
+}  rline = - ` lline ` matrix {
+a rSub { size 8{"12"} }  {} # a rSub { size 8{"13"} }  {} ##
+a rSub { size 8{"32"} }  {} # a rSub { size 8{"33"} } {}
+}  rline } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6002950">Mối liên hệ giữa các định thức và phần phụ:</para>
+        <para id="id6002956">- Tổng các tích của các phần tử theo hàng (cột) với phần phụ tương ứng bằng định thức |A|.</para>
+        <para id="id6002964">- Tổng các tích của các phần tử theo hàng (cột) với phần phụ tương ứng trong hàng (cột) khác bằng 0.</para>
+      </section>
+    </section>
+    <section id="id-473343381424">
+      <title>CÁC PHÉP TÍNH MA TRẬN. </title>
+      <section id="id-282272393399">
+        <title>Các ma trận bằng nhau:</title>
+        <para id="id6002991">Hai ma trận A và B được gọi là bằng nhau nếu tất cả các phần tử của ma trận A bằng tất cả các phần tử của ma trận B (aij = bịj 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mo stretchy="false">∀</m:mo></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ forall } {}</m:annotation></m:semantics></m:math> i, j; i, j = 1, 2, .. n).</para>
+      </section>
+      <section id="id-221708918592">
+        <title>Phép cộng (trừ) ma trận.</title>
+        <para id="id6003074">Cộng (trừ) các ma trận phái có cùng kích thước m x n. Ví dụ: Có hai ma trận A[aij ]mn và B[bij ]mn thì tổng và hiệu của hai ma trận này là ma trận C[cij ]mn với cij = aij bij </para>
+        <para id="id6003138">Mở rộng: R = A + B + C +..... + N với rij = aij  bij cij  ... nij .</para>
+        <para id="id6003193">Phép cộng (trừ) ma trận có tính chất giao hoán: A + B = B + A.</para>
+        <para id="id6003200">Phép cộng (trừ) ma trận có tính chất kết hợp: A + (B + C) = (A + B) + C.</para>
+      </section>
+      <section id="id-0413909516783">
+        <title>Tích vô hướng của ma trận:</title>
+        <para id="id6003216">k.A = B. Trong đó: bij = k .aij 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mo stretchy="false">∀</m:mo></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ forall } {}</m:annotation></m:semantics></m:math> i &amp; j .</para>
+        <para id="id6003277">Tính giao hoán: k.A = A.k..</para>
+        <para id="id6003287">Tính phân phối: k (A + B) = k.A + k..B = (A + B) k.</para>
+        <para id="id6003299">(với A và B là các ma trận có cùng kích thước, k là 1 hằng số ).</para>
+      </section>
+      <section id="id-744192520733">
+        <title>Nhân các ma trận:</title>
+        <para id="id6003317">Phép nhân hai ma trận A.B = C. Nếu ma trận A có kích thước m x q và ma trận B có kích thước q x n thì ma trận tích C có kích thước m x n. Các phần tử cij của ma trận C là tổng các tích của các phần tử tương ứng với i hàng của ma trận A và j cột của ma trận B là:</para>
+        <para id="id6003338"> cij = ai1 .b1j + ai2 .b2j + ... + aiq .bqj</para>
+        <para id="id6003387">Ví dụ:</para>
+        <para id="id6003393"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mtable><m:mtr><m:mtd><m:mrow><m:mi>A</m:mi><m:mtext>.</m:mtext><m:mi>B</m:mi><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow><m:mo stretchy="false">∣</m:mo><m:mrow><m:mi/><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>31</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>32</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mi/></m:mrow><m:mo stretchy="false">∣</m:mo></m:mrow><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ matrix {
+A "." B {} # = lline ` matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} }  {} ##
+a rSub { size 8{"31"} }  {} # a rSub { size 8{"32"} } {}
+} ` rline {}
+} } {}</m:annotation></m:semantics></m:math> x 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mo stretchy="false">∣</m:mo><m:mrow><m:mi/><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mi/></m:mrow><m:mo stretchy="false">∣</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">∣</m:mo><m:mrow><m:mi/><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>31</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>32</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>b</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>22</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable><m:mi/></m:mrow><m:mo stretchy="false">∣</m:mo></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ lline ` matrix {
+b rSub { size 8{"11"} }  {} # b rSub { size 8{"12"} }  {} ##
+b rSub { size 8{"21"} }  {} # b rSub { size 8{"22"} } {}
+} ` rline = lline ` matrix {
+a rSub { size 8{"11"} }  "." `b rSub { size 8{"11"} } +a rSub { size 8{"12"} }  "." `b rSub { size 8{"21"} }  {} # a rSub { size 8{"11"} }  "." `b rSub { size 8{"12"} } +a rSub { size 8{"12"} }  "." `b rSub { size 8{"22"} }  {} ##
+a rSub { size 8{"21"} }  "." `b rSub { size 8{"11"} } +a rSub { size 8{"22"} }  "." `b rSub { size 8{"21"} }  {} # a rSub { size 8{"11"} }  "." `b rSub { size 8{"12"} } +a rSub { size 8{"12"} }  "." `b rSub { size 8{"22"} }  {} ##
+a rSub { size 8{"31"} }  "." `b rSub { size 8{"11"} } +a rSub { size 8{"32"} }  "." `b rSub { size 8{"21"} }  {} # a rSub { size 8{"11"} }  "." `b rSub { size 8{"12"} } +a rSub { size 8{"12"} }  "." `b rSub { size 8{"22"} } {}
+} ` rline } {}</m:annotation></m:semantics></m:math></para>
+        <para id="id6004020">Phép nhân ma trận không có tính chất hoán vị: A.B 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> B.A</para>
+        <para id="id6004072">Phép nhân ma trận có tính chất phân phối đối với phép cộng: </para>
+        <para id="id6004079">A (B + C) = A.B + A.C.</para>
+        <para id="id6004084">Phép nhân ma trận có tính chất kết hợp: A (B.C) = (A.B) C = A.B.C.</para>
+        <para id="id6004091">Tích 2 ma trận A.B = 0 khi A = 0 hoặc B = 0.</para>
+        <para id="id6004097">Tích C.A = C.B khi A = B.</para>
+        <para id="id6004102">Nếu C = A.B thì CT = BT.AT</para>
+      </section>
+      <section id="id-125126132065">
+        <title>Nghịch đảo ma trận:</title>
+        <para id="id6004131">Cho hệ phương trình:</para>
+        <para id="id6004138">a11x1 + a12­x2 + a13x3 = y1</para>
+        <para id="id6004178">a21x1 + a22­x2 + a23x3 = y2 (1.2)</para>
+        <para id="id6004227">a31x1 + a32­x2 + a33x3 = y3</para>
+        <para id="id6004270">Viết dưới dạng ma trận A.X = Y </para>
+        <para id="id6004275">Nếu nghiệm của hệ trên là duy nhất thì tồn tại một ma trận B là nghịch đảo của ma trận A.</para>
+        <para id="id6004284">Do đó: X = B.Y  (1.3)</para>
+        <para id="id6004304">Nếu định thức của ma trận A 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> 0 thì có thể xác định xi như sau:</para>
+        <para id="id6004362">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>x</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>1</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>11</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>1</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>21</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>2</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>31</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:msub>
+                        <m:mi>y</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>3</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{x rSub { size 8{1} } = {  {A rSub { size 8{"11"} } }  over  { lline A rline } } y rSub { size 8{1} } + {  {A rSub { size 8{"21"} } }  over  { lline A rline } } y rSub { size 8{2} } + {  {A rSub { size 8{"31"} } }  over  { lline A rline } } y rSub { size 8{3} } } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6024097">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>x</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>2</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>12</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>1</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>22</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>2</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>32</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:msub>
+                        <m:mi>y</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>3</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{x rSub { size 8{2} } = {  {A rSub { size 8{"12"} } }  over  { lline A rline } } y rSub { size 8{1} } + {  {A rSub { size 8{"22"} } }  over  { lline A rline } } y rSub { size 8{2} } + {  {A rSub { size 8{"32"} } }  over  { lline A rline } } y rSub { size 8{3} } } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6024270">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>x</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>3</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>13</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>1</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>23</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>2</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mfrac>
+                          <m:msub>
+                            <m:mi>A</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>33</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mrow>
+                            <m:mo stretchy="false">∣</m:mo>
+                            <m:mi>A</m:mi>
+                            <m:mo stretchy="false">∣</m:mo>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:msub>
+                        <m:mi>y</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>3</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{x rSub { size 8{3} } = {  {A rSub { size 8{"13"} } }  over  { lline A rline } } y rSub { size 8{1} } + {  {A rSub { size 8{"23"} } }  over  { lline A rline } } y rSub { size 8{2} } + {  {A rSub { size 8{"33"} } }  over  { lline A rline } } y rSub { size 8{3} } } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6024443">Trong đó: A11, A12, .... A33 là định thức con phụ của a11, a12, a13 và |A| là định thức của ma trận A. Ta có:</para>
+        <para id="id6024485"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>B</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi>i</m:mi><m:mi/><m:mi>j</m:mi></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:msub><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">ij</m:mi></m:mrow></m:mstyle></m:msub><m:mrow><m:mo stretchy="false">∣</m:mo><m:mi>A</m:mi><m:mo stretchy="false">∣</m:mo></m:mrow></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{B rSub { size 8{i`j} } = {  {A rSub { size 8{ij} } }  over  { lline A rline } } } {}</m:annotation></m:semantics></m:math> i, j = 1, 2, 3.</para>
+        <para id="id6024579">Nhân ma trận A với nghịch đảo của nó ta có A.A-1 = A-1.A = U</para>
+        <para id="id6024597">Rút X từ phương trình (1.3) sau khi đã nhân cả hai vế cho A-1.</para>
+        <para id="id6024611">A.X = Y</para>
+        <para id="id6024615">A-1.A.X = A-1 .Y</para>
+        <para id="id6024630">U.X = A-1.Y </para>
+        <para id="id6024643">Suy ra: X = A-1 .Y</para>
+        <para id="id6024655">Nếu định thức của ma trận bằng 0, thì ma trận nghịch đảo không xác định (ma trận suy biến).</para>
+        <para id="id6024664">Nếu định thức khác 0 gọi là ma trận không suy biến và là ma trận nghịch đảo duy nhất.</para>
+        <para id="id6024672">Giả sử 2 ma trận A và B cùng cấp và là khả đảo lúc đó:</para>
+        <para id="id6024679">(A.B)-1 = B-1.A-1</para>
+        <para id="id6024698">Nếu AT khả đảo thì (AT)-1 cũng khả đảo:</para>
+        <para id="id6024720">(At)-1 = (A-1)t </para>
+      </section>
+      <section id="id-934500441135">
+        <title>Ma trận phân chia:</title>
+        <para id="id6024754">AA1A3A2A4=</para>
+        <para id="id6025051">Tổng các ma trận đã phân chia được biểu diễn bởi ma trận nhỏ bằng tổng các ma trận nhỏ tương ứng.</para>
+        <para id="id6025060">A1A3A2A4B1B3B2B4A1B1A3B3A2B3A4B3=</para>
+        <para id="id6025724">Phép nhân được biểu diễn như sau:</para>
+        <para id="id6025730">A1A3A2A4B1B3B2B4C1C3C2C4=</para>
+        <para id="id6026322">Trong đó:</para>
+        <para id="id6026327">C1 = A1.B1 + A2.B3</para>
+        <para id="id6026358">C2 = A1.B2 + A2.B4</para>
+        <para id="id6026393">C3 = A3.B1 + A4.B3</para>
+        <para id="id6026427">C4 = A3.B2 + A4.B4</para>
+        <para id="id6026462">Tách ma trận chuyển vị như sau:</para>
+        <para id="id6026470">AA1A3A2A4=ATAT1AT3AT2AT4=</para>
+        <para id="id6027074">Tách ma trận nghịch đảo như sau:</para>
+        <para id="id6027080">AA1A3A2A4=A-1B1B3B2B4=</para>
+        <para id="id6027667">Trong đó:</para>
+        <para id="id6027672">B1 = (A1 - A2.A4-1.A3)-1</para>
+        <para id="id6027712">B2 = -B1.A2.A4-1</para>
+        <para id="id6027746">B3 = -A4-1.A3.B1</para>
+        <para id="id6027779">B4 = A4-1 - A4-1.A3.B2</para>
+        <para id="id6027822">(với A1 và A4 phải là các ma trận vuông).</para>
+      </section>
+    </section>
+    <section id="id-132923125295">
+      <title>SỰ PHỤ THUỘC TUYẾN TÍNH VÀ HẠNG CỦA MA TRẬN:</title>
+      <section id="id-968048707137">
+        <title>Sự phụ thuộc tuyến tính:</title>
+        <para id="id6027860">Số cột của ma trận A(m x n) có thể viết theo n vectơ cột hoặc m vectơ hàng.</para>
+        <para id="id6027867">{c1}{c1} ..... {c1}</para>
+        <para id="id6027888">{r1}{r1} ...... {r1}</para>
+        <para id="id6027908">Phương trình vectơ cột thuần nhất.</para>
+        <para id="id6027913">p1{c1} + p2{c2} + .... + pn{cn} = 0   (1.4)</para>
+        <para id="id6027964">Khi tất cả Pk = 0 (k = 1, 2, ...., n).</para>
+        <para id="id6027974">Tương tự vectơ hàng là không phụ thuộc tuyến tính nếu.</para>
+        <para id="id6027981">qr = 0 (r = 1, 2, ..., n).</para>
+        <para id="id6027992">q1{r1} + q2{r2} + ...... + qn{rn} = 0  (1.5)</para>
+        <para id="id6028039">Nếu pk 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> 0 thỏa mãn phương trình (1.4), thì vectơ cột là tuyến tính.</para>
+        <para id="id6028096">Nếu qr 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> 0 thỏa mãn phương trình (1.5), thì vectơ hàng là tuyến tính.</para>
+        <para id="id6028154">Nếu vectơ cột (hàng) của ma trận A là tuyến tính, thì định thức của A = 0.</para>
+      </section>
+      <section id="id-890907619082">
+        <title>Hạng của ma trận:</title>
+        <para id="id6028170">Hạng của ma trận là cấp cao nhất mà tất cả các định thức con khác 0.</para>
+        <para id="id6028177">0  r(A)  min(m, n) với A là ma trận kích thước m x n.</para>
+      </section>
+    </section>
+    <section id="id-93097304353">
+      <title>HỆ PHƯƠNG TRÌNH TUYẾN TÍNH:</title>
+      <para id="id6028208">Hệ phương trình tuyến tính của m phương trình trong n hệ số được viết:</para>
+      <para id="id6028215">a11x1 + a12­x2 + .... + a1nxn = y1</para>
+      <para id="id6028262">a21x1 + a22­x2 + .... + a2nxn = y2</para>
+      <para id="id6028309">..........................................  (1.6)</para>
+      <para id="id6028323">am1x1 + am2­x2 + .... + amnxn = ym</para>
+      <para id="id6028374">Trong đó:</para>
+      <para id="id6028379">ai j: Là hệ số thực hoặc phức ; xj: Là biến số ; yj: Là hằng số của hệ.</para>
+      <para id="id6028413">Hệ phương trình được biểu diễn ở dạng ma trận như sau:</para>
+      <para id="id6028420">A. X = Y (1.7)</para>
+      <para id="id6028432">Ma trận mở rộng:</para>
+      <para id="id6028437">
+        <m:math>
+          <m:semantics>
+            <m:mrow>
+              <m:mstyle fontsize="12pt">
+                <m:mrow>
+                  <m:mrow>
+                    <m:mover accent="true">
+                      <m:mi>A</m:mi>
+                      <m:mo stretchy="false">ˆ</m:mo>
+                    </m:mover>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">∣</m:mo>
+                      <m:mtable>
+                        <m:mtr>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mtext>11</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mtext>12</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mn>1n</m:mn>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mn>1</m:mn>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                        </m:mtr>
+                        <m:mtr>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mtext>21</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mtext>22</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mn>2n</m:mn>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mn>2</m:mn>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                        </m:mtr>
+                        <m:mtr>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                        </m:mtr>
+                        <m:mtr>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mi fontstyle="italic">m1</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mi fontstyle="italic">m2</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mtext>.</m:mtext>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>mn</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                          <m:mtd>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mi>m</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mrow/>
+                            </m:mrow>
+                          </m:mtd>
+                        </m:mtr>
+                      </m:mtable>
+                      <m:mo stretchy="false">∣</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mstyle>
+              <m:mrow/>
+            </m:mrow>
+            <m:annotation encoding="StarMath 5.0"> size 12{ { hat  {A}}= lline  matrix {
+a rSub { size 8{"11"} }  {} # a rSub { size 8{"12"} }  {} #  "."  "."  "."  "."  {} # a rSub { size 8{1n} }  {} # y rSub { size 8{1} }  {} ##
+a rSub { size 8{"21"} }  {} # a rSub { size 8{"22"} }  {} #  "."  "."  "."  "."  {} # a rSub { size 8{2n} }  {} # y rSub { size 8{2} }  {} ##
+ "."  "."  "."  "."  {} #  "."  "."  "."  "."  {} #  "."  "."  "."  "."  {} #  "."  "."  "."  "."  {} #  "."  "."  "."  "."  {} ##
+a rSub { size 8{m1} }  {} # a rSub { size 8{m2} }  {} #  "."  "."  "."  "."  {} # a rSub { size 8{ ital "mn"} }  {} # y rSub { size 8{m} } {}
+}  rline } {}</m:annotation>
+          </m:semantics>
+        </m:math>
+      </para>
+      <para id="id6028784">Nếu yi = 0 thì hệ phương trình gọi là hệ thuần nhất, nghĩa là: A.X = 0.</para>
+      <para id="id6028797">Nếu một hoặc nhiều phần tử của vectơ yi 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> 0 thì hệ gọi là hệ không thuần nhất.</para>
+      <para id="id6028856">Định lý:</para>
+      <para id="id6028860">Điều kiện cần và đủ để hệ phương trình tuyến tính có nghiệm là hạng của ma trận hệ số bằng hạng của ma trận mở rộng.</para>
+      <para id="id6028867">Hệ phương trình tuyến tính vô nghiệm khi và chỉ khi hạng của ma trận hệ số nhỏ hơn hạng của ma trận mở rộng.</para>
+      <para id="id6028877">Nếu hạng của ma trận r(A) = r(Â) = r = n (số ẩn) của hệ phương trình tuyến tính (1.6) thì hệ có nghiệm duy nhất (hệ xác định).</para>
+      <para id="id6028889">Nếu r(A) = r(Â) = r &lt; n thì hệ phương trình tuyến tính có vô số nghiệm và các thành phần của nghiệm phụ thuộc (n - r) tham số tùy ý.</para>
+    </section>
+  </content>
+</document>

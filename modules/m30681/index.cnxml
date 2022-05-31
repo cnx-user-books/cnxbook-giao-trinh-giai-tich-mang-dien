@@ -1,0 +1,1134 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Mô hình hóa các phần tử trong hệ thống điện</title>
+  <metadata>
+  <md:content-id>m30681</md:content-id><md:title>Mô hình hóa các phần tử trong hệ thống điện</md:title>
+  <md:abstract/>
+  <md:uuid>2a842ef2-8dc7-4592-ab57-97be16965821</md:uuid>
+</metadata>
+
+<content>
+    <para id="id6038934">3.1. GIỚI THIỆU:</para>
+    <para id="id6038939">Trong hệ thống điện gồm có các thành phần cơ bản sau:</para>
+    <para id="id6038949">a. Mạng lưới truyền tải gồm:</para>
+    <para id="id6038958">- Đường dây truyền tải.</para>
+    <para id="id6038963">- Biến áp.</para>
+    <para id="id6038968">- Các bộ tụ điện tĩnh, kháng điện.</para>
+    <para id="id6038974">b. Phụ tải.</para>
+    <para id="id6038982">c. Máy phát đồng bộ và các bộ phận liên hợp: Hệ thống kích từ, điều khiển....</para>
+    <para id="id6038992">Các vấn đề cần xem xét ở đây là: Ngắn mạch, trào lưu công suất, ổn định quá độ. Mạng lưới truyền tải được giả thiết là ở trạng thái ổn định vì thời hằng của nó nhỏ hơn nhiều so với máy phát đồng bộ.</para>
+    <para id="id6039006">3.2. MÔ HÌNH ĐƯỜNG DÂY TRUYỀN TẢI.</para>
+    <para id="id6039012">3.2.1. Đường dây dài đồng nhất.</para>
+    <para id="id6039018">Đường dây dài đồng nhất là đường dây có điện trở, điện kháng, dung kháng, điện dẫn rò phân bố đều dọc theo chiều dài đường dây, có thể tính theo từng pha và theo đơn vị dài. Trong thực tế điện dẫn rò rất nhỏ có thể bỏ qua. Chúng ta chỉ quan tâm đến quan hệ giữa điện áp và dòng điện giữa hai đầu đường dây, một đầu cấp và một đầu nhận. Khoảng cách tính từ đầu cấp đến đầu nhận.</para>
+    <para id="id6039041">Để tính toán và xem xét mối quan hệ giữa điện áp và dòng điện trên từng điểm của đường dây ta có mô hình toán học như sau: (xem hình 3.1). Tại tọa độ x lấy vi phân dx trên mỗi pha so với trung tính và khảo sát phân tố dx.</para>
+    <para id="id6039065">x =1Đầu cấpISIRI + dIV + dVV+VS-+VR-dxx = 0Đầu nhậnHình 3.1 : Quan hệ điện áp và dòng điện ở phân tố dài của đường dây truyền tải</para>
+    <para id="id6040740">Với phân tố dx này ta có thể viết:</para>
+    <para id="id6040746">dV = I .z .dx</para>
+    <para id="id6040750">Hay 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dV</m:mtext></m:mrow></m:mstyle><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dx</m:mtext></m:mrow></m:mstyle></m:mfrac><m:mo stretchy="false">=</m:mo><m:mi>I</m:mi></m:mrow><m:mtext>.</m:mtext><m:mi>z</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  { ital "dV"}  over  { ital "dx"} } =I "." z} {}</m:annotation></m:semantics></m:math> (3.1)</para>
+    <para id="id6040853">Và dI = V. y . dx</para>
+    <para id="id6040865">Với z: Tổng trở nối tiếp của mỗi pha trên mỗi đơn vị dài </para>
+    <para id="id6040876">y: Tổng dẫn rẽ nhánh của mỗi pha trên mỗi đơn vị dài</para>
+    <para id="id6040884">Hay 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dI</m:mtext></m:mrow></m:mstyle><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dx</m:mtext></m:mrow></m:mstyle></m:mfrac><m:mo stretchy="false">=</m:mo><m:mi>V</m:mi></m:mrow><m:mtext>.</m:mtext><m:mi>y</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  { ital "dI"}  over  { ital "dx"} } =V "." y} {}</m:annotation></m:semantics></m:math>  (3.2)</para>
+    <para id="id6080904">Lấy vi phân bậc 2 của (3.1) và (3.2) theo x ta có: </para>
+    <para id="id6080910"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mrow><m:msup><m:mi>d</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mi>V</m:mi></m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:msup><m:mtext>dx</m:mtext><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mstyle></m:mfrac><m:mo stretchy="false">=</m:mo><m:mi>z</m:mi></m:mrow><m:mtext>.</m:mtext><m:mfrac><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dI</m:mtext></m:mrow></m:mstyle><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dx</m:mtext></m:mrow></m:mstyle></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {d rSup { size 8{2} } V}  over  { ital "dx" rSup { size 8{2} } } } =z "."  {  { ital "dI"}  over  { ital "dx"} } } {}</m:annotation></m:semantics></m:math>  (3.3)</para>
+    <para id="id6081034"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mrow><m:msup><m:mi>d</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mi>I</m:mi></m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:msup><m:mtext>dx</m:mtext><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mstyle></m:mfrac><m:mo stretchy="false">=</m:mo><m:mi>y</m:mi></m:mrow><m:mtext>.</m:mtext><m:mfrac><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dV</m:mtext></m:mrow></m:mstyle><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dx</m:mtext></m:mrow></m:mstyle></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {d rSup { size 8{2} } I}  over  { ital "dx" rSup { size 8{2} } } } =y "."  {  { ital "dV"}  over  { ital "dx"} } } {}</m:annotation></m:semantics></m:math>  (3.4)</para>
+    <para id="id6081153">Thế (3.1) và (3.2) vào (3.3) và (3.4) ta có:</para>
+    <para id="id6081159"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mrow><m:msup><m:mi>d</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mi>V</m:mi></m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:msup><m:mtext>dx</m:mtext><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mstyle></m:mfrac><m:mo stretchy="false">=</m:mo><m:mi>z</m:mi></m:mrow><m:mtext>.</m:mtext><m:mi>y</m:mi><m:mtext>.</m:mtext><m:mi>V</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {d rSup { size 8{2} } V}  over  { ital "dx" rSup { size 8{2} } } } =z "." y "." V} {}</m:annotation></m:semantics></m:math>  (3.5)</para>
+    <para id="id6081271"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mrow><m:msup><m:mi>d</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mi>I</m:mi></m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:msup><m:mtext>dx</m:mtext><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mstyle></m:mfrac><m:mo stretchy="false">=</m:mo><m:mi>z</m:mi></m:mrow><m:mtext>.</m:mtext><m:mi>y</m:mi><m:mtext>.</m:mtext><m:mi>I</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {d rSup { size 8{2} } I}  over  { ital "dx" rSup { size 8{2} } } } =z "." y "." I} {}</m:annotation></m:semantics></m:math>  (3.6)</para>
+    <para id="id6081383">Giải (3.5) ta có dạng nghiệm như sau:</para>
+    <para id="id6081389"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mi>V</m:mi><m:mo stretchy="false">=</m:mo><m:msub><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>exp</m:mtext><m:mo stretchy="false">(</m:mo><m:msqrt><m:mstyle fontstyle="italic"><m:mrow><m:mtext>zy</m:mtext></m:mrow></m:mstyle></m:msqrt><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:msub><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>exp</m:mtext><m:mrow><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">−</m:mo><m:msqrt><m:mstyle fontstyle="italic"><m:mrow><m:mtext>zy</m:mtext></m:mrow></m:mstyle></m:msqrt></m:mrow><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{V=A rSub { size 8{1} } "exp" \(  sqrt { ital "zy"}  "." x \) +A rSub { size 8{2} } "exp" \(  -  sqrt { ital "zy"}  "." x \) } {}</m:annotation></m:semantics></m:math> (3.7)</para>
+    <para id="id6081537">Thay (3.7) vào đạo hàm bậc nhất (3.1) ta có dòng điện </para>
+    <para id="id6081544"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mi>I</m:mi><m:mo stretchy="false">=</m:mo><m:mfrac><m:mn>1</m:mn><m:msqrt><m:mfrac><m:mi>z</m:mi><m:mi>y</m:mi></m:mfrac></m:msqrt></m:mfrac></m:mrow><m:msub><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mtext>exp</m:mtext><m:mo stretchy="false">(</m:mo><m:msqrt><m:mstyle fontstyle="italic"><m:mrow><m:mtext>zy</m:mtext></m:mrow></m:mstyle></m:msqrt><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">−</m:mo><m:mfrac><m:mn>1</m:mn><m:msqrt><m:mfrac><m:mi>z</m:mi><m:mi>y</m:mi></m:mfrac></m:msqrt></m:mfrac></m:mrow><m:msub><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mtext>exp</m:mtext><m:mrow><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">−</m:mo><m:msqrt><m:mstyle fontstyle="italic"><m:mrow><m:mtext>zy</m:mtext></m:mrow></m:mstyle></m:msqrt></m:mrow><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I= {  {1}  over  { sqrt { {  {z}  over  {y} } } } } A rSub { size 8{1} } "exp" \(  sqrt { ital "zy"}  "." x \)  -  {  {1}  over  { sqrt { {  {z}  over  {y} } } } } A rSub { size 8{2} } "exp" \(  -  sqrt { ital "zy"}  "." x \) } {}</m:annotation></m:semantics></m:math>  (3.8)</para>
+    <para id="id6081714">A1 và A2 được xác định từ điều kiện biên:</para>
+    <para id="id6081740">V = VR và I = IR ở x = 0;</para>
+    <para id="id6081774">Thay vào (3.7) và (3.8) cân bằng ta được:</para>
+    <para id="id6081780"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msqrt><m:mfrac><m:mi>z</m:mi><m:mi>y</m:mi></m:mfrac></m:msqrt></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{A rSub { size 8{1} } = {  {V rSub { size 8{R} } + sqrt { {  {z}  over  {y} } }  "." I rSub { size 8{R} } }  over  {2} } } {}</m:annotation></m:semantics></m:math>  (3.9)</para>
+    <para id="id6081898"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>A</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msqrt><m:mfrac><m:mi>z</m:mi><m:mi>y</m:mi></m:mfrac></m:msqrt></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{A rSub { size 8{2} } = {  {V rSub { size 8{R} }  -  sqrt { {  {z}  over  {y} } }  "." I rSub { size 8{R} } }  over  {2} } } {}</m:annotation></m:semantics></m:math>  (3.10)</para>
+    <para id="id6082016">Đặt 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msqrt/></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{c} } = sqrt { {z} wideslash {y} } } {}</m:annotation></m:semantics></m:math> : Gọi là tổng trở đường dây</para>
+    <para id="id6082096"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>γ</m:mi><m:mo stretchy="false">=</m:mo><m:msqrt><m:mrow><m:mi>z</m:mi><m:mtext>.</m:mtext><m:mi>y</m:mi></m:mrow></m:msqrt></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{γ= sqrt {z "." y} } {}</m:annotation></m:semantics></m:math> : Gọi là hằng số truyền sóng </para>
+    <para id="id6082174">Vậy (3.9) và (3.10) được viết gọn như sau:</para>
+    <para id="id6082180"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>V</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mtext>exp</m:mtext><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>c</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mtext>exp</m:mtext><m:mrow><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">−</m:mo><m:mi>γ</m:mi></m:mrow><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{V \( x \) = {  {V rSub { size 8{R} } +I rSub { size 8{R} }  "." Z rSub { size 8{c} } }  over  {2} } "exp" \( γ "." x \) + {  {V rSub { size 8{R} }  - I rSub { size 8{R} }  "." Z rSub { size 8{c} } }  over  {2} } "exp" \(  - γ "." x \) } {}</m:annotation></m:semantics></m:math> (3.11)</para>
+    <para id="id6082390"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>I</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mo stretchy="false">+</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mtext>exp</m:mtext><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">−</m:mo><m:mfrac><m:mrow><m:mo stretchy="false">−</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mtext>exp</m:mtext><m:mrow><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">−</m:mo><m:mi>γ</m:mi></m:mrow><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I \( x \) = {  { {V rSub { size 8{R} } } wideslash {Z rSub { size 8{c} } } +I rSub { size 8{R} } }  over  {2} } "exp" \( γ "." x \)  -  {  { {V rSub { size 8{R} } } wideslash {Z rSub { size 8{c} } }  - I rSub { size 8{R} } }  over  {2} } "exp" \(  - γ "." x \) } {}</m:annotation></m:semantics></m:math> (3.12)</para>
+    <para id="id6082562">Công thức (3.11) và (3.12) dùng để xác định điện áp và dòng điện tại bất cứ điểm nào của đường dây theo tọa độ x.</para>
+    <para id="id6082571">Ta viết (3.11) lại như sau:</para>
+    <para id="id6082577"><m:math><m:semantics><m:mrow><m:mrow><m:mtable><m:mtr><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>V</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mi/><m:mrow><m:mfenced open="[" close="]"><m:mrow><m:mtext>exp</m:mtext><m:mi/><m:mo stretchy="false">(</m:mo><m:mi/><m:mi>γ</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:mtext>exp</m:mtext></m:mrow><m:mi/><m:mo stretchy="false">(</m:mo><m:mrow><m:mi/><m:mo stretchy="false">−</m:mo><m:mi>γ</m:mi></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mfenced><m:mo stretchy="false">+</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mfenced open="[" close="]"><m:mrow><m:mi/><m:mtext>exp</m:mtext><m:mi/><m:mo stretchy="false">(</m:mo><m:mi/><m:mi>γ</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">−</m:mo><m:mtext>exp</m:mtext></m:mrow><m:mi/><m:mrow><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">−</m:mo><m:mi>γ</m:mi></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mfenced></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtr><m:mtr><m:mrow><m:mrow><m:mi/><m:mo stretchy="false">=</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ch</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi/><m:mi>γ</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mrow><m:mi/><m:mo stretchy="false">+</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mi/><m:mtext>.</m:mtext><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi/><m:mi>γ</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mrow/></m:mrow></m:mtr></m:mtable><m:mrow/></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{V \( x \) =V rSub { size 8{R} }  "."  {1} wideslash {2}  "." ` left ["exp"` \( `γ` "." `x \) +"exp"` \( ` - γ` "." `x \)  right ]+I rSub { size 8{R} }  "." `Z rSub { size 8{C} } ` "."  {1} wideslash {2} ` left [`"exp"` \( `γ` "." `x \)  - "exp"` \(  - γ` "." `x \)  right ]}  {} # 
+~````=V rSub { size 8{R} } ` "."  ital "ch"` \( `γ` "." `x \) `+I rSub { size 8{R} } ` "." Z rSub { size 8{C} }  "."  ital "sh"` \( `γ` "." `x \)  {} 
+} } {}</m:annotation></m:semantics></m:math> (3.13)</para>
+    <para id="id6082944">Tương tự (3.12) </para>
+    <para id="id6082949"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>I</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mi/><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ch</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi/><m:mi>γ</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi/><m:mi>γ</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I \( x \) =I rSub { size 8{R} } ` ital "ch"` \( `γ` "." `x \) + {V rSub { size 8{R} } } wideslash {Z rSub { size 8{C} } } ` "."  ital "sh"` \( `γ` "." `x \) } {}</m:annotation></m:semantics></m:math> (3.14)</para>
+    <para id="id6083104">Khi x = 1 ta có điện áp và dòng điện ở đầu cấp:</para>
+    <para id="id6083110"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ch</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub><m:mi/><m:mtext>.</m:mtext><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{V rSub { size 8{S} } =V rSub { size 8{R} } ` "." ` ital "ch"` \( γ "." x \) +I rSub { size 8{R} } ` "." `Z rSub { size 8{C} } ` "."  ital "sh"` \( γ "." x \) } {}</m:annotation></m:semantics></m:math> (3.15)</para>
+    <para id="id6083280"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo></m:mrow><m:mtext>.</m:mtext><m:mi/><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ch</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{S} } = {V rSub { size 8{R} } } wideslash {Z rSub { size 8{C} } }  "." ` ital "sh"` \( γ "." x \) +I rSub { size 8{R} } ` "." ` ital "ch"` \( γ "." x \) } {}</m:annotation></m:semantics></m:math> (3.16)</para>
+    <para id="id6083427">3.2.2. Sơ đồ tương đương đường dây dài (l &gt; 240):</para>
+    <para id="id6083433">ISIRZ+VR-Y2Y1+VS-Hình 3.2 : Sơ đồ  của đường dây truyền tảiSử dụng công thức (3.15) và (3.16) để lập sơ đồ tương đương của đường dây dài như hình 3.2 (gọi là sơ đồ hình ).</para>
+    <para id="id6390889">Từ sơ đồ hình 3.2 ta có:</para>
+    <para id="id6390894"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π2</m:mi></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mo stretchy="false">(</m:mo></m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π2</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">)</m:mo><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{V rSub { size 8{S} } =V rSub { size 8{R} } +Z rSub { size 8{π} } ` "." `I rSub { size 8{R} } +V rSub { size 8{R} }  "." Y rSub { size 8{π2} }  "." Z rSub { size 8{π} } = \( 1+Y rSub { size 8{π2} }  "." Z rSub { size 8{π} }  \) V rSub { size 8{R} } +Z rSub { size 8{π} }  "." I rSub { size 8{R} } } {}</m:annotation></m:semantics></m:math> (3.17)</para>
+    <para id="id6391139"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mo stretchy="false">(</m:mo></m:mrow><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π2</m:mi></m:mrow></m:mstyle></m:msub><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π1</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{S} } = \( I rSub { size 8{R} } +V rSub { size 8{R} }  "." Y rSub { size 8{π2} }  \) +V rSub { size 8{S} } Y rSub { size 8{π1} } } {}</m:annotation></m:semantics></m:math> (3.18)</para>
+    <para id="id6391291">Thay VS ở (3.17) vào (3.18) và đơn giản hóa ta được:</para>
+    <para id="id6391309"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfenced open="[" close="]"><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π1</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π2</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π1</m:mi></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π2</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mfenced></m:mrow><m:mtext>.</m:mtext><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:mo stretchy="false">(</m:mo></m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">π1</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">)</m:mo><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{S} } = left [ \( Y rSub { size 8{π1} } +Y rSub { size 8{π2} }  \) +Z rSub { size 8{π} }  "." Y rSub { size 8{π1} }  "." Y rSub { size 8{π2} }  right ] "." Y rSub { size 8{R} } + \( 1+Z rSub { size 8{π} }  "." Y rSub { size 8{π1} }  \) I rSub { size 8{R} } } {}</m:annotation></m:semantics></m:math>  (3.19)</para>
+    <para id="id6391547">Đồng nhất (3.17) và (3.19) tương ứng với (3.15) và (3.16) ta có:</para>
+    <para id="id6391552">Z = ZC sh ( .l)  (3.20)</para>
+    <para id="id6391596">Y1 = Y2 = Y  (3.21)</para>
+    <para id="id6391647">(1+Z.Y) = ch ( .l)   (3.22)</para>
+    <para id="id6391695">Vậy: 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ch</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">−</m:mo><m:mn>1</m:mn></m:mrow></m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub><m:mi/><m:mtext>.</m:mtext><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mfrac></m:mrow><m:mo stretchy="false">=</m:mo><m:mfrac><m:mn>1</m:mn><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mstyle fontstyle="italic"><m:mrow><m:mtext>th</m:mtext></m:mrow></m:mstyle><m:mi/><m:mfenced open="" close=""><m:mfrac><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mfenced></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{π} } = {  { ital "ch"` \( γ "." l \)  - 1}  over  {Z rSub { size 8{C} } ` "."  ital "sh"` \( γ "." l \) } } = {  {1}  over  {Z rSub { size 8{C} } } } ` "." ` ital "th"` left ( {  {γ "." l}  over  {2} }  right )} {}</m:annotation></m:semantics></m:math> (3.23)</para>
+    <para id="id6391899">Viết gọn (3.20) và (3.23) lại ta có:</para>
+    <para id="id6391905"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mi>y</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi><m:mrow><m:mfrac><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi></m:mrow></m:mfrac><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mi>z</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi><m:mi/><m:mtext>.</m:mtext><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi></m:mrow></m:mfrac></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{π} } =Z rSub { size 8{C} }  "." y "." l {  { ital "sh"` \( γ "." l \) }  over  {γ "." l} } = {  {z` "." `l` "."  ital "sh"` \( γ "." l \) }  over  {γ "." l} } } {}</m:annotation></m:semantics></m:math> (3.24)
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mi>y</m:mi><m:mtext>.</m:mtext><m:mi/></m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow><m:mtext>.</m:mtext><m:mrow><m:mfrac><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>th</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/></m:mrow></m:mfrac><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mi>y</m:mi><m:mtext>.</m:mtext><m:mi>l</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mtext>.</m:mtext><m:mfrac><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>th</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/></m:mrow></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{π} } = {  {y "." ` {l} wideslash {2} }  over  {Z rSub { size 8{C} } } }  "."  {  { ital "th"` \( γ "." ` {l} wideslash {2}  \) }  over  {γ "." ` {l} wideslash {2} } } = {  {y "." l}  over  {2} }  "."  {  { ital "th"` \( γ "." ` {l} wideslash {2}  \) }  over  {γ "." ` {l} wideslash {2} } } } {}</m:annotation></m:semantics></m:math> (3.25)</para>
+    <para id="id6392266">Sử dụng sơ đồ hình (3.3) và khai triển sh và ch ta có thể tính Y và Z đến độ chính xác cần thiết. Thông thường trong sơ đồ nối tiếp chỉ cần lấy 2 hay 3 phần tử là đạt yêu cầu chính xác:</para>
+    <para id="id6392299">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mstyle fontstyle="italic">
+                    <m:mrow>
+                      <m:mtext>Sh</m:mtext>
+                    </m:mrow>
+                  </m:mstyle>
+                  <m:mi/>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mi>x</m:mi>
+                  <m:mrow>
+                    <m:mo stretchy="false">)</m:mo>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mi>x</m:mi>
+                          <m:mo stretchy="false">+</m:mo>
+                          <m:mfrac>
+                            <m:msup>
+                              <m:mi>x</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mn>3</m:mn>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msup>
+                            <m:mrow>
+                              <m:mn>3</m:mn>
+                              <m:mi>!</m:mi>
+                            </m:mrow>
+                          </m:mfrac>
+                        </m:mrow>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mfrac>
+                          <m:msup>
+                            <m:mi>x</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mn>5</m:mn>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msup>
+                          <m:mrow>
+                            <m:mn>5</m:mn>
+                            <m:mi>!</m:mi>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mrow>
+                      <m:mo stretchy="false">+</m:mo>
+                      <m:mtext>.</m:mtext>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                  <m:mrow>
+                    <m:mtext>.</m:mtext>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mtext>.</m:mtext>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>.</m:mtext>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ ital "Sh"` \( x \) =x+ {  {x rSup { size 8{3} } }  over  {3!} } + {  {x rSup { size 8{5} } }  over  {5!} } + "."  "."  "."  "."  "."  "." + "."  "."  "."  "."  "."  "."  "." } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6392455"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Ch</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mrow><m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mfrac><m:msup><m:mi>x</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mrow><m:mn>2</m:mn><m:mi>!</m:mi></m:mrow></m:mfrac></m:mrow><m:mo stretchy="false">+</m:mo><m:mfrac><m:msup><m:mi>x</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>4</m:mn></m:mrow></m:mstyle></m:msup><m:mrow><m:mn>4</m:mn><m:mi>!</m:mi></m:mrow></m:mfrac></m:mrow><m:mo stretchy="false">+</m:mo><m:mtext>.</m:mtext></m:mrow></m:mrow><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mrow><m:mtext>.</m:mtext><m:mo stretchy="false">+</m:mo><m:mtext>.</m:mtext></m:mrow><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ ital "Ch"` \( x \) =1+ {  {x rSup { size 8{2} } }  over  {2!} } + {  {x rSup { size 8{4} } }  over  {4!} } + "."  "."  "."  "."  "."  "." + "."  "."  "."  "."  "."  "."  "." } {}</m:annotation></m:semantics></m:math> (3.26)</para>
+    <para id="id6392629"><figure id="id6392640"><media id="id7757378" alt=""><image src=".wmf" mime-type="image/wmf" height="57" width="99"/></media></figure>IsIR<figure id="id6393382"><media id="id1169732296633" alt=""><image src=".wmf" mime-type="image/wmf" height="74" width="141"/></media></figure><figure id="id6393406"><media id="id2983958" alt=""><image src=".wmf" mime-type="image/wmf" height="73" width="116"/></media></figure>Hình 3.3 : Sơ đồ  của mạng tuyền tải+-VR+-VS
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Th</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mrow><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">−</m:mo><m:mfrac><m:msup><m:mi>x</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>3</m:mn></m:mrow></m:mstyle></m:msup><m:mn>3</m:mn></m:mfrac></m:mrow><m:mo stretchy="false">+</m:mo><m:mfrac><m:mn>2</m:mn><m:mtext>15</m:mtext></m:mfrac></m:mrow></m:mrow><m:mrow><m:msup><m:mi>x</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>5</m:mn></m:mrow></m:mstyle></m:msup><m:mo stretchy="false">−</m:mo><m:mfrac><m:mtext>17</m:mtext><m:mtext>315</m:mtext></m:mfrac></m:mrow><m:mrow><m:msup><m:mi>x</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>7</m:mn></m:mrow></m:mstyle></m:msup><m:mo stretchy="false">+</m:mo><m:mtext>.</m:mtext></m:mrow><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ ital "Th"` \( x \) =x -  {  {x rSup { size 8{3} } }  over  {3} } + {  {2}  over  {"15"} } x rSup { size 8{5} }  -  {  {"17"}  over  {"315"} } x rSup { size 8{7} } + "."  "."  "."  "."  "."  "."  "."  "."  "." } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id6393863"/>
+    <para id="id6393873">Nếu chỉ lấy hai số hàng đầu.</para>
+    <para id="id6393881">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>Z</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>π</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">≈</m:mo>
+                    <m:mi>z</m:mi>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mi>l</m:mi>
+                  <m:mi/>
+                  <m:mtext>.</m:mtext>
+                  <m:mi/>
+                  <m:mfenced open="[" close="]">
+                    <m:mrow>
+                      <m:mn>1</m:mn>
+                      <m:mo stretchy="false">+</m:mo>
+                      <m:mfrac>
+                        <m:mrow>
+                          <m:mo stretchy="false">(</m:mo>
+                          <m:mi>γ</m:mi>
+                          <m:mtext>.</m:mtext>
+                          <m:mi/>
+                          <m:mi>l</m:mi>
+                          <m:msup>
+                            <m:mo stretchy="false">)</m:mo>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mn>2</m:mn>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msup>
+                        </m:mrow>
+                        <m:mn>6</m:mn>
+                      </m:mfrac>
+                    </m:mrow>
+                  </m:mfenced>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{π} }  approx z "." l` "." ` left [1+ {  { \( γ "." `l \)  rSup { size 8{2} } }  over  {6} }  right ]} {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6393996"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">≈</m:mo><m:mfrac><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mrow><m:mfenced open="[" close="]"><m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">−</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>3</m:mn></m:mfrac></m:mrow><m:msup><m:mfenced open="" close=""><m:mfrac><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mfenced><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mfenced><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mfenced open="[" close="]"><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">−</m:mo><m:msup><m:mfenced open="" close=""><m:mfrac><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mfenced><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mfenced></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{π} }  approx  {  {γ "." `l}  over  {2} }  left [1 -  {  {1}  over  {3} }  left ( {  {γ "." `l}  over  {2} }  right ) rSup { size 8{2} }  right ]= {  {γ "." `l}  over  {2} }  left [1 -  left ( {  {γ "." `l}  over  {2} }  right ) rSup { size 8{2} }  right ]} {}</m:annotation></m:semantics></m:math> (3.27)</para>
+    <para id="id6394188">3.2.3. Sơ đồ tương đương của đường dây trung bình:</para>
+    <para id="id6394194">Gồm các đường dây có .l &lt;&lt; 1 gọi là đường dây trung bình (240km)</para>
+    <para id="id6394213">Z = z.l = Z (tổng các tổng trở nối tiếp)</para>
+    <para id="id6394234">ZY/2ISY/2IR+-+-Hình 3.4 : Sơ đồ đối xứng  củađường dây truyền tảiHình 3.5 : Sơ đồ đối xứng T củađường dây truyền tảiIRZT1YTZT1IS+-+-VSVRVSVR
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>π</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mi>y</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mo stretchy="false">=</m:mo><m:mfrac><m:mi>Y</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{π} } = {  {y "." `l}  over  {2} } = {  {Y}  over  {2} } } {}</m:annotation></m:semantics></m:math> (nửa của tổng dẫn rẽ)</para>
+    <para id="id6028271">Sơ đồ thu được theo giả thiết gọi là sơ đồ đối xứng  (hình 3.4) và còn có một sơ đồ thể hiện khác nửa gọi là sơ đồ đối xứng T (hình 3.5)</para>
+    <para id="id6028293">Tính toán tương tự như sơ đồ  ta có (sơ đồ T)</para>
+    <para id="id6028311">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>Z</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi fontstyle="italic">T1</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:msub>
+                          <m:mi>Z</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi fontstyle="italic">T2</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mrow>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:msub>
+                        <m:mi>Z</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mi>T</m:mi>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mfrac>
+                      <m:mrow>
+                        <m:mi>z</m:mi>
+                        <m:mtext>.</m:mtext>
+                        <m:mi/>
+                        <m:mi>l</m:mi>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:mfrac>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mfrac>
+                    <m:mrow>
+                      <m:mstyle fontstyle="italic">
+                        <m:mrow>
+                          <m:mtext>th</m:mtext>
+                        </m:mrow>
+                      </m:mstyle>
+                      <m:mi/>
+                      <m:mo stretchy="false">(</m:mo>
+                      <m:mi>γ</m:mi>
+                      <m:mtext>.</m:mtext>
+                      <m:mi/>
+                      <m:mo stretchy="false">)</m:mo>
+                    </m:mrow>
+                    <m:mrow>
+                      <m:mi>γ</m:mi>
+                      <m:mtext>.</m:mtext>
+                      <m:mi/>
+                    </m:mrow>
+                  </m:mfrac>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{T1} } =Z rSub { size 8{T2} } =Z rSub { size 8{T} } = {  {z "." `l}  over  {2} }  "."  {  { ital "th"` \( γ "." ` {l} wideslash {2}  \) }  over  {γ "." ` {l} wideslash {2} } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6028455">Và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>T</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mi>y</m:mi></m:mrow><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi><m:mfrac><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi>l</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi></m:mrow></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{T} } =y "." `l {  { ital "sh"` \( γ` "." l \) }  over  {γ "." `l} } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id6028569">Với sơ đồ đối xứng T (yl &lt;&lt; 1) có thể rút gọn như hình 3.6</para>
+    <para id="id6028578">Hai sơ đồ tương xứng này có độ chính xác như nhau nhưng thông thường hay dùng sơ đồ p vì không phải tính thêm nữa.</para>
+    <para id="id6028587">Trong trường hợp đường dây khá ngắn (l  80km) có thể bỏ qua tổng dẫn mạch rẽ ở cả hai sơ đồ p và T và thu gọn chỉ còn một tổng dẫn nối tiếp Z (hình 3.7)</para>
+    <para id="id6028612">Z/2YZ/2ISIR+-+-ZISIR+-+-Hình 3.6 : Sơ đồ đối xứng THình 3.7 : Sơ đồ tương đương của đườngdây tuyền tải ngắnVSVRVSVR</para>
+    <para id="id6030410">3.2.4. Thông số A, B, C, D:</para>
+    <para id="id6030416">Các thông số A, B, C, D được sử dụng để thiết lập các phương trình quan hệ giữa điện áp và dòng điện ở đầu cung cấp và đầu nhận của đường dây truyền tải.</para>
+    <para id="id6030427">Bảng 3.1 : Tham số A, B, C, D cho từng loại sơ đồ </para>
+    <table id="id6030441" summary="">
+      <tgroup cols="5">
+        <colspec colnum="1" colname="c1"/>
+        <colspec colnum="2" colname="c2"/>
+        <colspec colnum="3" colname="c3"/>
+        <colspec colnum="4" colname="c4"/>
+        <colspec colnum="5" colname="c5"/>
+        <tbody>
+          <row>
+            <entry>Loại đường dây</entry>
+            <entry>A</entry>
+            <entry>B</entry>
+            <entry>C</entry>
+            <entry>D</entry>
+          </row>
+          <row>
+            <entry>A1-Đường dây dài đồng nhất-Đường dây trung bình.Sơ đồ đối xứng T.Sơ đồ đối xứng p-Đường dây ngắn</entry>
+            <entry>
+              <m:math>
+                <m:semantics>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mtable>
+                        <m:mtr>
+                          <m:mrow>
+                            <m:mstyle fontsize="12pt">
+                              <m:mrow>
+                                <m:mrow>
+                                  <m:mstyle fontstyle="italic">
+                                    <m:mrow>
+                                      <m:mtext>ch</m:mtext>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                  <m:mi/>
+                                  <m:mo stretchy="false">(</m:mo>
+                                  <m:mi>γ</m:mi>
+                                  <m:mtext>.</m:mtext>
+                                  <m:mi/>
+                                  <m:mi>l</m:mi>
+                                  <m:mrow>
+                                    <m:mo stretchy="false">)</m:mo>
+                                    <m:mo stretchy="false">=</m:mo>
+                                    <m:mrow>
+                                      <m:mn>1</m:mn>
+                                      <m:mo stretchy="false">+</m:mo>
+                                      <m:mfrac>
+                                        <m:mrow>
+                                          <m:mi>Y</m:mi>
+                                          <m:mtext>.</m:mtext>
+                                          <m:mi>Z</m:mi>
+                                        </m:mrow>
+                                        <m:mn>2</m:mn>
+                                      </m:mfrac>
+                                    </m:mrow>
+                                  </m:mrow>
+                                </m:mrow>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtr>
+                        <m:mtr>
+                          <m:mrow>
+                            <m:mstyle fontsize="12pt">
+                              <m:mrow>
+                                <m:mrow>
+                                  <m:mrow>
+                                    <m:mrow>
+                                      <m:mo stretchy="false">+</m:mo>
+                                      <m:mfrac>
+                                        <m:mrow>
+                                          <m:msup>
+                                            <m:mi>Y</m:mi>
+                                            <m:mstyle fontsize="8pt">
+                                              <m:mrow>
+                                                <m:mn>2</m:mn>
+                                              </m:mrow>
+                                            </m:mstyle>
+                                          </m:msup>
+                                          <m:mtext>.</m:mtext>
+                                          <m:msup>
+                                            <m:mi>Z</m:mi>
+                                            <m:mstyle fontsize="8pt">
+                                              <m:mrow>
+                                                <m:mn>2</m:mn>
+                                              </m:mrow>
+                                            </m:mstyle>
+                                          </m:msup>
+                                        </m:mrow>
+                                        <m:mtext>24</m:mtext>
+                                      </m:mfrac>
+                                    </m:mrow>
+                                    <m:mo stretchy="false">+</m:mo>
+                                    <m:mtext>.</m:mtext>
+                                  </m:mrow>
+                                  <m:mtext>.</m:mtext>
+                                  <m:mtext>.</m:mtext>
+                                </m:mrow>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mrow/>
+                          </m:mrow>
+                        </m:mtr>
+                      </m:mtable>
+                      <m:mrow/>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{ ital "ch"` \( γ "." `l \) =1+ {  {Y "." Z}  over  {2} } }  {} # 
+ size 12{+ {  {Y rSup { size 8{2} }  "." Z rSup { size 8{2} } }  over  {"24"} } + "."  "."  "." }  {} 
+} } {}</m:annotation>
+                </m:semantics>
+              </m:math>
+              <m:math>
+                <m:semantics>
+                  <m:mrow>
+                    <m:mstyle fontsize="12pt">
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mn>1</m:mn>
+                          <m:mo stretchy="false">+</m:mo>
+                          <m:mfrac>
+                            <m:mrow>
+                              <m:mi>Y</m:mi>
+                              <m:mi/>
+                              <m:mtext>.</m:mtext>
+                              <m:mi/>
+                              <m:mi>Z</m:mi>
+                            </m:mrow>
+                            <m:mn>2</m:mn>
+                          </m:mfrac>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mstyle>
+                    <m:mrow/>
+                  </m:mrow>
+                  <m:annotation encoding="StarMath 5.0"> size 12{1+ {  {Y` "." `Z}  over  {2} } } {}</m:annotation>
+                </m:semantics>
+              </m:math>
+              <m:math>
+                <m:semantics>
+                  <m:mrow>
+                    <m:mstyle fontsize="12pt">
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mn>1</m:mn>
+                          <m:mo stretchy="false">+</m:mo>
+                          <m:mfrac>
+                            <m:mrow>
+                              <m:mi>Y</m:mi>
+                              <m:mi/>
+                              <m:mtext>.</m:mtext>
+                              <m:mi/>
+                              <m:mi>Z</m:mi>
+                            </m:mrow>
+                            <m:mn>2</m:mn>
+                          </m:mfrac>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mstyle>
+                    <m:mrow/>
+                  </m:mrow>
+                  <m:annotation encoding="StarMath 5.0"> size 12{1+ {  {Y` "." `Z}  over  {2} } } {}</m:annotation>
+                </m:semantics>
+              </m:math>
+            </entry>
+            <entry><m:math><m:semantics><m:mrow><m:mrow><m:mtable><m:mtr><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub><m:mi/><m:mtext>.</m:mtext><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mi>Z</m:mi></m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mrow/></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtr><m:mtr><m:mrow><m:mrow><m:mrow><m:mfrac><m:mrow><m:mi>Y</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi>Z</m:mi></m:mrow><m:mn>6</m:mn></m:mfrac><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:msup><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mi/><m:mtext>.</m:mtext><m:msup><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow><m:mtext>240</m:mtext></m:mfrac></m:mrow><m:mo stretchy="false">+</m:mo><m:mtext>.</m:mtext></m:mrow><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mrow/></m:mrow></m:mtr></m:mtable><m:mrow/></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{Z rSub { size 8{C} } ` "."  ital "sh"` \( γ "." `l \) =Z \( 1+{}}  {} # 
+ {  {Y` "." Z}  over  {6} } + {  {Y rSup { size 8{2} } ` "." Z rSup { size 8{2} } }  over  {"240"} } + "."  "."  "."  {} 
+} } {}</m:annotation></m:semantics></m:math><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>Z</m:mi><m:mi/><m:mo stretchy="false">(</m:mo><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:mi>Y</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>Z</m:mi></m:mrow><m:mn>4</m:mn></m:mfrac></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z` \( 1+ {  {Y` "." `Z}  over  {4} }  \) } {}</m:annotation></m:semantics></m:math>ZZ</entry>
+            <entry><m:math><m:semantics><m:mrow><m:mrow><m:mtable><m:mtr><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sh</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>C</m:mi></m:mrow></m:mstyle></m:msub></m:mfrac><m:mo stretchy="false">=</m:mo><m:mi>Y</m:mi></m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mrow/></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtr><m:mtr><m:mrow><m:mrow><m:mrow><m:mfrac><m:mrow><m:mi>Y</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi>Z</m:mi></m:mrow><m:mn>6</m:mn></m:mfrac><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:msup><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup><m:mtext>.</m:mtext><m:mi/><m:msup><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow><m:mtext>120</m:mtext></m:mfrac></m:mrow><m:mo stretchy="false">+</m:mo><m:mtext>.</m:mtext></m:mrow><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mrow/></m:mrow></m:mtr></m:mtable><m:mrow/></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{ {  { ital "sh"` \( γ "." `l \) }  over  {Z rSub { size 8{C} } } } =Y \( 1+{}}  {} # 
+ {  {Y` "." Z}  over  {6} } + {  {Y rSup { size 8{2} }  "." `Z rSup { size 8{2} } }  over  {"120"} } + "."  "."  "."  {} 
+} } {}</m:annotation></m:semantics></m:math>Y
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>Y</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:mi>Y</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>Z</m:mi></m:mrow><m:mn>4</m:mn></m:mfrac></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Y \( 1+ {  {Y` "." `Z}  over  {4} }  \) } {}</m:annotation></m:semantics></m:math>0</entry>
+            <entry><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ch</m:mtext></m:mrow></m:mstyle><m:mi/><m:mo stretchy="false">(</m:mo><m:mi>γ</m:mi><m:mtext>.</m:mtext><m:mi/><m:mi>l</m:mi><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">=</m:mo><m:mi>A</m:mi></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ ital "ch"` \( γ "." `l \) =A} {}</m:annotation></m:semantics></m:math>AA</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para id="id6031503">Ví dụ: Đẳng thức 3.15 và 3.16 được viết lại như sau:</para>
+    <para id="id6031509">VS = A.VR + B.IR</para>
+    <para id="id6031538">IS = C.VR + D.IR</para>
+    <para id="id6031566">Bảng 3.1 cho giá trị A, B, C, D của từng loại đường dây truyền tải. Đường dây dài, đường dây trung bình và đường dây ngắn, các thông số này có đặc tính quan trọng là: </para>
+    <para id="id6031579">A.D - B.C = 1   (3.28)</para>
+    <para id="id6031605">Điều này đã được chứng minh.</para>
+    <para id="id6031610">3.2.5. Các dạng tổng trở và tổng dẫn:</para>
+    <para id="id6031615">Xét các đường dây truyền tải theo các tham số A, B, C, D các phương trình được viết dưới dạng ma trận:</para>
+    <para id="id6031624"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced><m:mo stretchy="false">=</m:mo><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:mi>A</m:mi><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mi>B</m:mi><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mi>C</m:mi><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mi>D</m:mi><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mfenced><m:mo stretchy="false">×</m:mo><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ left [ matrix {
+V rSub { size 8{S} }  {} ##
+I rSub { size 8{S} } 
+}  right ]= left [ matrix {
+A {} # B {} ##
+C {} # D{}
+}  right ] times  left [ matrix {
+V rSub { size 8{R} }  {} ##
+I rSub { size 8{R} } 
+}  right ]} {}</m:annotation></m:semantics></m:math> (3.29)</para>
+    <para id="id6031793">Phương trình 3.29 được viết lại theo biến IS và IR sử dụng kết quả:</para>
+    <para id="id6031820">A.D - B.C = 1 </para>
+    <para id="id6031828">Như sau:</para>
+    <para id="id6031833"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced><m:mo stretchy="false">=</m:mo><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>SS</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>SR</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>RS</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>RR</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mfenced><m:mo stretchy="false">×</m:mo><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ left [ matrix {
+V rSub { size 8{S} }  {} ##
+V rSub { size 8{R} } 
+}  right ]= left [ matrix {
+Z rSub { size 8{ ital "SS"} }  {} # Z rSub { size 8{ ital "SR"} }  {} ##
+Z rSub { size 8{ ital "RS"} }  {} # Z rSub { size 8{ ital "RR"} } {}
+}  right ] times  left [ matrix {
+I rSub { size 8{S} }  {} ##
+I rSub { size 8{R} } 
+}  right ]} {}</m:annotation></m:semantics></m:math> (3.30)</para>
+    <para id="id6032058">Với ZSS = A/C; ZSR = -1/C; ZRS = 1/C; ZRR = -D/C</para>
+    <para id="id6032104">Công thức (3.30) được viết dưới dạng kí hiệu:</para>
+    <para id="id6032110">V = Z.I  (3.31)</para>
+    <para id="id6032130">Thêm một cách biểu diễn IS, IR theo biến VS, VR như sau:</para>
+    <para id="id6032175"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced><m:mo stretchy="false">=</m:mo><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>SS</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>SR</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>RS</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>RR</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mfenced><m:mo stretchy="false">×</m:mo><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>R</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ left [ matrix {
+I rSub { size 8{S} }  {} ##
+I rSub { size 8{R} } 
+}  right ]= left [ matrix {
+Y rSub { size 8{ ital "SS"} }  {} # Y rSub { size 8{ ital "SR"} }  {} ##
+Y rSub { size 8{ ital "RS"} }  {} # Y rSub { size 8{ ital "RR"} } {}
+}  right ] times  left [ matrix {
+V rSub { size 8{S} }  {} ##
+V rSub { size 8{R} } 
+}  right ]} {}</m:annotation></m:semantics></m:math> (3.32)</para>
+    <para id="id6395872">Hay  I = Y. V</para>
+    <para id="id6395891">Với: YSS = D/B; YSR = -1/B; YRS = 1/B; YRR = -A/B</para>
+    <para id="id6395937">Ở đây ma trận Z là ma trận tổng trở mạch hở, ma trận Y là ma trận tổng dẫn ngắn mạch và đảm bảo Z = Y-1 của mạng hai cửa. Ở chương sau sẽ tính mở rộng cho mạng n cửa.</para>
+    <para id="id6395958">3.2.6. Các thông số Z và Y dùng cho các giới thiệu khác:</para>
+    <para id="id6395964">Từ bảng 3.1 các đẳng thức 3.30 và 3.31 thông số Z và Y được tính như sau (dùng cho sơ đồ p)</para>
+    <para id="id6395972"><m:math><m:semantics><m:mrow><m:mrow><m:mtable><m:mtr><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>SS</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mo stretchy="false">(</m:mo></m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:mi>Y</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>Z</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mrow><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">/</m:mo><m:mi>Z</m:mi></m:mrow><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">+</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtr><m:mtr><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>SR</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo></m:mrow><m:mo stretchy="false">=</m:mo></m:mrow><m:mi>;</m:mi><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>RS</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo></m:mrow><m:mrow/></m:mrow></m:mtr><m:mtr><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>RR</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">−</m:mo><m:mo stretchy="false">(</m:mo></m:mrow></m:mrow><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:mi>Y</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>Z</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow><m:mrow><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">/</m:mo><m:mi>Z</m:mi></m:mrow><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">−</m:mo><m:mo stretchy="false">(</m:mo></m:mrow></m:mrow><m:mrow><m:mo stretchy="false">+</m:mo></m:mrow><m:mo stretchy="false">)</m:mo><m:mrow/></m:mrow></m:mtr></m:mtable><m:mrow/></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{Y rSub { size 8{ ital "SS"} } = {D} wideslash {B} = \( 1+ {  {Y` "." `Z}  over  {2} }  \) /Z= {1} wideslash {2} + {Y} wideslash {2} }  {} # 
+Y rSub { size 8{ ital "SR"} } = -  {1} wideslash {B} = -  {1} wideslash {2} ;Y rSub { size 8{ ital "RS"} } = {1} wideslash {2}  {} # 
+Y rSub { size 8{ ital "RR"} } = -  {A} wideslash {B} = -  \( 1+ {  {Y` "." `Z}  over  {2} }  \) /Z= -  \(  {1} wideslash {2} + {Y} wideslash {2}  \)  {} 
+} } {}</m:annotation></m:semantics></m:math> (3.33)Các tham số này có thể tính trực tiếp từ sơ đồ hình 3.4 viết ra các phương trình nút và loại dòng nhánh giữa.</para>
+    <para id="id6396280">3.3. MÁY BIẾN ÁP:</para>
+    <para id="id6396285">3.3.1. Máy biến áp 2 cuộn dây:</para>
+    <para id="id6396290">I1I2+-<figure id="id6397634"><media id="id5591106" alt=""><image src=".wmf" mime-type="image/wmf" height="72" width="100"/></media></figure><figure id="id6397658"><media id="id6316795" alt=""><image src=".wmf" mime-type="image/wmf" height="66" width="92"/></media></figure>X1R1XmRm+-Hình 3.8 : Sơ đồ tương đương của máy biến ápV1V2Sơ đồ tương đương của máy biến áp (MBA) như hình 3.8. Các tham số được quy về phía sơ cấp (phía 1).</para>
+    <para id="id6397970"/>
+    <para id="id6397992"/>
+    <para id="id6398014">Trong MBA lực, nhánh từ hóa có dòng khá nhỏ có thể lượt đi và sơ đồ tương đương được rút gọn như hình 3.9</para>
+    <para id="id6398023">I1<figure id="id6398825"><media id="id6307617" alt=""><image src=".wmf" mime-type="image/wmf" height="66" width="114"/></media></figure><figure id="id6398849"><media id="id1169722564543" alt=""><image src=".wmf" mime-type="image/wmf" height="66" width="130"/></media></figure>I2+V1-+V2-I1I2XR+V1-+V2-Hình 3.9 : Sơ đồ tương đương đơn giản hóa của MBA</para>
+    <para id="id6400002">3.3.2. Máy biến áp từ ngẫu:</para>
+    <para id="id6400008">Máy biến áp từ ngẫu (MBATN) gồm có một cuộn dây chung có số vòng N1 và một cuộn dây nối tiếp có số vòng N2, sơ đồ 1 pha và 3 pha ở dưới.</para>
+    <para id="id6400038">Đầu cực a-n đại diện cho phía điện áp thấp và đầu cực a’-n’ đại diện cho phía điện áp cao. Tỉ lệ vòng toàn bộ là:</para>
+    <para id="id6400045">IN1(b)(c)(a’)(c’)(b’)N2N1(a’)(n)Va’(a)(n)VaN2N1Ia’(a)IN2Hình 3.10 : MBA từ ngẫu 3 pha Hình 3.11 : Sơ đồ 1 pha của MBATNHình 3.9: Sơ đồ tương đương đơn giản hóa của MBAHình 3.8: Sơ đồ tương đương của máy biến áp<figure id="id6402820"><media id="id1169730315730" alt=""><image src="graphics1.wmf" mime-type="image/wmf" height="49" width="169"/></media></figure></para>
+    <para id="id6402844">Sơ đồ tương đương của MBATN được mô phỏng như hình 3.12, trong đó Zex là tổng trở đo được ở phía hạ khi phía cap áp ngắn mạch.</para>
+    <para id="id6402865">Hai tổng trở ngắn mạch nữa được tính là:</para>
+    <para id="id6402871">- ZeH: Tổng trở đo được ở phía cao áp khi số vòng N1 bị ngắn mạch nối tắt cực a-n. Và dễ dàng chứng minh từ hình 3.12 (phép quy đổi)</para>
+    <para id="id6402904">ZeH = Zex N2  (3.34)</para>
+    <para id="id6402950">- ZeL: Tổng trở đo được phía hạ áp khi số vòng N2 bị ngắn mạch nối tắt cực a-a’ hình 3.13.</para>
+    <para id="id6402978">IaIa’a’n’1:NZexan+-Hình 3.12 : Sơ đồ tương đương của MBATNIaa’1:NIa’I1ann’+Va-+Va’-ZexHình 3.13 : Sơ đồ tương đương khinối a-a’ của MBATN+-VaVa’</para>
+    <para id="id6405788">Từ sơ đồ hình 3.13 ta có:</para>
+    <para id="id6405793">Va = Va’</para>
+    <para id="id6405813"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mo stretchy="false">(</m:mo></m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>a</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:mfrac><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi>a</m:mi><m:mi>'</m:mi></m:mrow></m:mrow></m:mstyle></m:msub><m:mi>N</m:mi></m:mfrac></m:mrow><m:mrow><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">/</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ex</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">=</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>a</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mrow><m:mfrac><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>N</m:mi><m:mo stretchy="false">−</m:mo><m:mn>1</m:mn></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:mi>N</m:mi></m:mfrac><m:mo stretchy="false">/</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ex</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{1} } = \( V rSub { size 8{a} }  -  {  {V rSub { size 8{a'} } }  over  {N} }  \) /Z rSub { size 8{ ital "ex"} } =V rSub { size 8{a} }  {  { \( N - 1 \) }  over  {N} } /Z rSub { size 8{ ital "ex"} } } {}</m:annotation></m:semantics></m:math> (3.35)</para>
+    <para id="id6406015">Đối với máy biến áp lý tưởng số ampe vòng bằng zero cho nên chúng ta có:</para>
+    <para id="id6406020">I1 = Ia’ N</para>
+    <para id="id6406045">Hay Ia’ = I1/N</para>
+    <para id="id6406074">Với:Ia + Ia’ = I1 </para>
+    <para id="id6406109">Vì vậy: </para>
+    <para id="id6406114">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>I</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>a</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>I</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mn>1</m:mn>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mi/>
+                  <m:mtext>.</m:mtext>
+                  <m:mfrac>
+                    <m:mrow>
+                      <m:mi>N</m:mi>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mn>1</m:mn>
+                    </m:mrow>
+                    <m:mi>N</m:mi>
+                  </m:mfrac>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{a} } =I rSub { size 8{1} } ` "."  {  {N - 1}  over  {N} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6406200">Tổng trở :</para>
+    <para id="id6406205">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>Z</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>eL</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mfrac>
+                        <m:msub>
+                          <m:mi>V</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>a</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:msub>
+                          <m:mi>I</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>a</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mfrac>
+                    </m:mrow>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mfrac>
+                      <m:msub>
+                        <m:mi>V</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mi>a</m:mi>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:msub>
+                        <m:mi>I</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mfrac>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mfrac>
+                      <m:mi>N</m:mi>
+                      <m:mrow>
+                        <m:mo stretchy="false">(</m:mo>
+                        <m:mrow>
+                          <m:mi>N</m:mi>
+                          <m:mo stretchy="false">−</m:mo>
+                          <m:mn>1</m:mn>
+                        </m:mrow>
+                        <m:mo stretchy="false">)</m:mo>
+                      </m:mrow>
+                    </m:mfrac>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msup>
+                      <m:mfenced open="" close="">
+                        <m:mfrac>
+                          <m:mi>N</m:mi>
+                          <m:mrow>
+                            <m:mi>N</m:mi>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                        </m:mfrac>
+                      </m:mfenced>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mn>2</m:mn>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msup>
+                  </m:mrow>
+                  <m:msub>
+                    <m:mi>Z</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>ex</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "eL"} } = {  {V rSub { size 8{a} } }  over  {I rSub { size 8{a} } } } = {  {V rSub { size 8{a} } }  over  {I rSub { size 8{1} } } }  {  {N}  over  { \( N - 1 \) } } = left ( {  {N}  over  {N - 1} }  right ) rSup { size 8{2} } Z rSub { size 8{ ital "ex"} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6406400">Do đó: </para>
+    <para id="id6406406"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ex</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msup><m:mfenced open="" close=""><m:mfrac><m:mrow><m:mi>N</m:mi><m:mo stretchy="false">−</m:mo><m:mn>1</m:mn></m:mrow><m:mi>N</m:mi></m:mfrac></m:mfenced><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>eL</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "ex"} } = left ( {  {N - 1}  over  {N} }  right ) rSup { size 8{2} } Z rSub { size 8{ ital "eL"} } } {}</m:annotation></m:semantics></m:math> (3.36)</para>
+    <para id="id6406533">Sử dụng (3.34) ta có:</para>
+    <para id="id6406538">ZeH = (N-1)2 Z eL = a2ZeL</para>
+    <para id="id6406584">* Nhược điểm của MBATN:</para>
+    <para id="id6406589">- Hai phía cao và hạ áp không tách nhau về điện nên kém an toàn </para>
+    <para id="id6406599">- Tổng trở nối tiếp thấp hơn MBA 2 cuộn dây gây ra dòng ngắn mạch lớn </para>
+    <para id="id6406609">* Ưu điểm của MBATN:</para>
+    <para id="id6414114">- Công suất đơn vị lớn hơn MBA 2 cuộn dây nên tải được nhiều hơn</para>
+    <para id="id6414124">- Độ lợi càng lớn khi tỉ số vòng là 2:1 hoặc thấp hơn</para>
+    <para id="id6414133">Ví dụ minh họa: Cho một MBA 2 cuộn dây có thông số định mức là 22KVA, 220/110V, f = 50Hz. Cuộn A là 220V có Z = 0,22 + j0,4 () cuộn B là 110V có tổng trở là Z = 0,05 + j0,09 (). </para>
+    <para id="id6414165">MBA đấu theo dạng từ ngẫu cung cấp cho tải 110V với nguồn 330V. Tính Zex, ZeL, ZeH dòng phụ tải là 30A. Tìm mức điều tiết điện áp.</para>
+    <para id="id6414204">Giải:</para>
+    <para id="id6414209">Cuộn B là cuộn chung có N­1 vòng, cuộn A là cuộn nối tiếp có N2 vòng.</para>
+    <para id="id6414236">Vậy N2 /N1 = 2 = a và N = a+1 = 3, do ZA = 0,24 + j0,4 (), ZB = 0,05 + j0,09 ()</para>
+    <para id="id6414296">Nên:</para>
+    <para id="id6414300">ZeH = ZA + a2ZB = 0,44+ j0,76 ()</para>
+    <para id="id6414350">ZeL = ZB + ZA/a2 = 0,11+j0,19 ()</para>
+    <para id="id6414400">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>Z</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>ex</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mfrac>
+                        <m:msub>
+                          <m:mi>Z</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>eH</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:msup>
+                          <m:mi>N</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mn>2</m:mn>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msup>
+                      </m:mfrac>
+                    </m:mrow>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>Z</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>eL</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:msup>
+                      <m:mfenced open="" close="">
+                        <m:mfrac>
+                          <m:mrow>
+                            <m:mi>N</m:mi>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                          <m:mi>N</m:mi>
+                        </m:mfrac>
+                      </m:mfenced>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mn>2</m:mn>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msup>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mn>0,</m:mn>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mtext>049</m:mtext>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mi fontstyle="italic">j0</m:mi>
+                  </m:mrow>
+                  <m:mi>,</m:mi>
+                  <m:mtext>08</m:mtext>
+                  <m:mi/>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mo stretchy="false">Ω</m:mo>
+                  <m:mo stretchy="false">)</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "ex"} } = {  {Z rSub { size 8{ ital "eH"} } }  over  {N rSup { size 8{2} } } } =Z rSub { size 8{ ital "eL"} }  left ( {  {N - 1}  over  {N} }  right ) rSup { size 8{2} } =0,"049"+j0,"08"` \(  %OMEGA  \) } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6414582">Mức điều chỉnh điện áp = 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mfrac><m:mrow><m:mi>I</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>R</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mtext>cos</m:mtext><m:mrow><m:mi>θ</m:mi><m:mo stretchy="false">+</m:mo><m:mi>I</m:mi></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mi>X</m:mi><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mtext>sin</m:mtext><m:mi>θ</m:mi></m:mrow><m:mi>V</m:mi></m:mfrac><m:mtext>.</m:mtext><m:mtext>100</m:mtext><m:mtext/></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {I` "." `R` "." `"cos"θ+I` "." `X` "." `"sin"θ}  over  {V} }  "." "100"%} {}</m:annotation></m:semantics></m:math></para>
+    <para id="id6414689">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow/>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mfrac>
+                      <m:mtext>30</m:mtext>
+                      <m:mn>3</m:mn>
+                    </m:mfrac>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mfrac>
+                    <m:mrow>
+                      <m:mn>0,</m:mn>
+                      <m:mtext>44</m:mtext>
+                      <m:mi/>
+                      <m:mtext>.</m:mtext>
+                      <m:mi/>
+                      <m:mrow>
+                        <m:mn>0,9</m:mn>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mn>0,</m:mn>
+                      </m:mrow>
+                      <m:mtext>76</m:mtext>
+                      <m:mi/>
+                      <m:mtext>.</m:mtext>
+                      <m:mi/>
+                      <m:mn>0,</m:mn>
+                      <m:mtext>437</m:mtext>
+                    </m:mrow>
+                    <m:mtext>330</m:mtext>
+                  </m:mfrac>
+                  <m:mtext>.</m:mtext>
+                  <m:mtext>100</m:mtext>
+                  <m:mrow>
+                    <m:mtext/>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mn>2,</m:mn>
+                  </m:mrow>
+                  <m:mtext>21</m:mtext>
+                  <m:mtext/>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ {}= {  {"30"}  over  {3} }  "."  {  {0,"44"` "." `0,9+0,"76"` "." `0,"437"}  over  {"330"} }  "." "100"%=2,"21"%} {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6414810">3.3.3. Máy biến áp có bộ điều áp:</para>
+    <para id="id6414815">Do phụ tải luôn thay đổi theo thời gian dẫn đến điện áp của hệ thống điện cũng thay đổi theo. Để giữ cho điện áp trên các dây dẫn nằm trong giới hạn cho phép người ta điều chỉnh điện áp một hoặc hai phía của MBA bằng cách đặt bộ phân áp vào MBA nói chung là đặt phía cao áp để điều chỉnh mềm hơn. Khi tỉ số vòng N bằng tỉ số điện áp định mức ta nói đó là tỉ lệ đồng nhất. Khi chúng không bằng ta nói tỉ lệ là không đồng nhất. Bộ điều áp có hai loại:</para>
+    <para id="id6414830">-Bộ điều áp dưới tải</para>
+    <para id="id6414835">-Bộ điều áp không tải </para>
+    <para id="id6414840">Bộ điều áp dưới tải có thể điều chỉnh tự động hoặc bằng tay, khi điều chỉnh bằng tay phải dựa vào kinh nghiệm và tính toán trào lưu công suất trước đó. Tỉ số đầu phân áp có thể là số thực hay số phức trong trường hợp là số phức điện áp ở hai phía khác nhau về độ lớn và góc pha. MBA này gọi là MBA chuyển pha.</para>
+    <para id="id6414855">3.3.4. Máy biến áp có tỉ số vòng không đồng nhất:</para>
+    <para id="id6414861">Chúng ta xét trường hợp tỉ số vòng không đồng nhất là số thực cần xét hai vấn đề sau:</para>
+    <para id="id6414869">- Giá trị tương đối của tổng trở nối tiếp của MBA đặt nối tiếp trong máy biến áp lý tưởng cho phép có sự khác nhau trong điện áp, tỉ lệ không đồng nhất được mô tả trên sơ đồ bằng chữ a và giả thiết rằng a nằm xung quanh 1 (a 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math>1)</para>
+    <para id="id6414937">- Giả thiết tổng trở nối tiếp của MBA không đổi khi đầu phân áp thay đổi vị trí.</para>
+    <para id="id6414945">MBA không đồng nhất được mô tả theo hai cách như hình 3.14, tổng dẫn nối tiếp trong hai cách có quan hệ là Y1’ = Y1/a2.</para>
+    <para id="id6414982">p(2)qqpY’1a:1Y1a:1Hình 3.14 : Hai cách giới thiệu máy biến áp không đồng nhất(1)</para>
+    <para id="id6416688">a:1Y1qpaHình 3.15 : Sơ đồ tương đương của MBA không đồng nhấtVới tỉ lệ biến áp bình thường là a:1 phía a gọi là phía điều áp. Vì vậy trong sơ đồ 1 tổng dẫn nối tiếp được nối đến phía 1 còn sơ đồ 2 thì được nối đến phía a.</para>
+    <para id="id6417558"/>
+    <para id="id6417562">Xét hình 3.15 của MBA không đồng nhất ở đây tổng trở nối tiếp được nối đến phía đơn vị của bộ điều áp.</para>
+    <para id="id6417572">Mạng hai cửa tương đương của nó là:</para>
+    <para id="id6417579">Ở nút p:</para>
+    <para id="id6417583"><m:math><m:semantics><m:mrow><m:mrow><m:mtable><m:mtr><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mo stretchy="false">(</m:mo></m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>p</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:mstyle fontstyle="italic"><m:mrow><m:msub><m:mtext>aV</m:mtext><m:mstyle fontsize="8pt"><m:mrow><m:mi>q</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle></m:mrow><m:mo stretchy="false">)</m:mo><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">/</m:mo><m:msup><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtr><m:mtr><m:mrow><m:mrow><m:mi/><m:mo stretchy="false">=</m:mo><m:mrow><m:mfrac><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>p</m:mi></m:mrow></m:mstyle></m:msub><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:msup><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mfrac><m:mo stretchy="false">−</m:mo><m:mfrac><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>q</m:mi></m:mrow></m:mstyle></m:msub><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mi>a</m:mi></m:mfrac></m:mrow></m:mrow><m:mi/><m:mrow/></m:mrow></m:mtr></m:mtable><m:mrow/></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{I rSub { size 8{ ital "pq"} } = \( V rSub { size 8{p} }  -  ital "aV" rSub { size 8{q} }  \) Y rSub { size 8{1} } /a rSup { size 8{2} } }  {} # 
+~``= {  {V rSub { size 8{p} } Y rSub { size 8{1} } }  over  {a rSup { size 8{2} } } }  -  {  {V rSub { size 8{q} } Y rSub { size 8{1} } }  over  {a} } ~ {} 
+} } {}</m:annotation></m:semantics></m:math> (3.37)</para>
+    <para id="id6417814">p0q0Y1Y2Y3(a)p0q0(b)Y1/a<figure id="id6419474"><media id="id2774135" alt=""><image src=".wmf" mime-type="image/wmf" height="56" width="85"/></media></figure><figure id="id6419498"><media id="id2806867" alt=""><image src=".wmf" mime-type="image/wmf" height="56" width="85"/></media></figure>IpqI’pqIpqI’pqIpqaY’1I’pqp0q0(1-a)Y’1a(a-1)Y’1(c)Hình 3.16 : Sơ đồ tương đương của MBA không đồng nhất +-Vp+-Vq+-Vp+-Vq+-Vp+-VqỞ nút q:</para>
+    <para id="id6421011"><m:math><m:semantics><m:mrow><m:mrow><m:mtable><m:mtr><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msubsup><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>'</m:mi></m:mrow></m:mstyle></m:msubsup><m:mo stretchy="false">=</m:mo><m:mo stretchy="false">(</m:mo></m:mrow><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>q</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo></m:mrow><m:mo stretchy="false">)</m:mo><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow></m:mtr><m:mtr><m:mrow><m:mrow><m:mi/><m:mo stretchy="false">=</m:mo><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>q</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mi/><m:mtext>.</m:mtext><m:mi/><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:mfrac><m:mrow><m:msub><m:mi>V</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>p</m:mi></m:mrow></m:mstyle></m:msub><m:mi/><m:mtext>.</m:mtext><m:mi/><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mi>a</m:mi></m:mfrac></m:mrow><m:mi/><m:mrow/></m:mrow></m:mtr></m:mtable><m:mrow/></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{I rSub { size 8{ ital "pq"} }  rSup { size 8{'} } = \( V rSub { size 8{q} }  -  {V rSub { size 8{p} } } wideslash {a}  \) Y rSub { size 8{1} } }  {} # 
+~``=V rSub { size 8{q} } ` "." `Y rSub { size 8{1} }  -  {  {V rSub { size 8{p} } ` "." `Y rSub { size 8{1} } }  over  {a} } ~ {} 
+} } {}</m:annotation></m:semantics></m:math> (3.38)</para>
+    <para id="id6421213">Ở sơ đồ hình 3.16a ta có:</para>
+    <para id="id6421218">Ipq = VpY2 + (Vp-Vq)Y1  (3.39)</para>
+    <para id="id6421289">I’pq = VqY3 + (Vq-Vp)Y1  (3.40)</para>
+    <para id="id6421362">Đồng nhất (3.39) và (3.40) với (3.37) và (3.38) ta được:</para>
+    <para id="id6421367">Y1 + Y2 = Y1/a2</para>
+    <para id="id6421404">Y1 =Y1/a</para>
+    <para id="id6421428">Y1 + Y3 = Y1</para>
+    <para id="id6421456">Giải ra ta được: 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mi>a</m:mi></m:mfrac></m:mrow><m:mi>;</m:mi><m:mi/><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:msup><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mfrac></m:mrow><m:mrow><m:mi/><m:mo stretchy="false">−</m:mo><m:mfrac><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mi>a</m:mi></m:mfrac></m:mrow><m:mi>;</m:mi><m:mi/><m:mrow><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>3</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mi/></m:mrow><m:mi>Y</m:mi><m:mmultiscripts><m:mtext/><m:mprescripts/><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle><m:none/></m:mmultiscripts><m:mrow><m:mi/><m:mo stretchy="false">−</m:mo><m:mfrac><m:msub><m:mi>Y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mi>a</m:mi></m:mfrac></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{1} } = {  {Y rSub { size 8{1} } }  over  {a} } ;~Y rSub { size 8{2} } = {  {Y rSub { size 8{1} } }  over  {a rSup { size 8{2} } } } ` -  {  {Y rSub { size 8{1} } }  over  {a} } ;~Y rSub { size 8{3} } =`Y"" lSub { size 8{1} } ` -  {  {Y rSub { size 8{1} } }  over  {a} } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id6421652">Sơ đồ là hình 3.16b. Chú ý tất cả tổng dẫn trong sơ đồ tương đương là hàm của tỉ số vòng a. Và dấu liên hợp giữa Y2 và Y 3 luôn ngược. Ví dụ: Nếu Y1 là điện kháng a &gt; 1; Y2 là điện kháng; Y3 là điện dung; nếu a &lt; 1; Y2 là dung kháng và Y3 là điện kháng.</para>
+    <para id="id6421731">Sơ đồ hình 3.16c là sơ đồ tương đương theo Y’1 khi a  1 thì tổng trở mạch rẽ   và tổng dẫn nối tiếp tiến đến Y1.</para>
+    <para id="id6421786">3.3.5. Máy biến áp chuyển pha:</para>
+    <para id="id6421792">Trong hệ thống điện liên kết có mạch vòng hay đường dây song song, công suất thật truyền trên đường dây được điều khiển bằng máy biến áp chuyển pha, MBA có tỉ số vòng là số phức thì độ lớn và góc pha điện áp phụ thuộc vào vị trí của bộ điều áp.</para>
+    <para id="id6421806">Khi cuộn sơ cấp và cuộn thứ cấp được quấn trên cùng một lõi thì chúng có cùng pha và tỉ lệ phân áp là thực. Tuy nhiên trong máy biến áp từ ngẫu chuyển pha cuộn sơ cấp và cuộn thứ cấp được bố trí tùy theo độ lệch pha để khi thay đổi đầu phân áp thì góc pha cũng thay đổi theo. Sơ đồ minh họa ở hình 3.17a, sơ đồ đơn giản hóa chỉ có một pha của MBATN chuyển pha là đầy đủ để cho gọn gàng, dễ thấy cuộn dây thứ 2 của pha a bị làm lệch điện áp đi 900 so với pha a.</para>
+    <para id="id6421833">Ở sơ đồ vectơ hình 3.17b khi đầu phân áp chạy từ R  A thì điện áp thay đổi từ zero đến aa’ kết quả là điện áp thứ cấp thay đổi từ oa đến oa’.</para>
+    <para id="id6421854">abRARa’AcRAaa’cb’bc’(a)(b)Hình 3.17 : Máy biến áp từ ngẫu chuyển pha gồm cả ba phaSơ đồ đấu dâySơ đồ vectơ</para>
+    <para id="id6426184">Như hình 3.17 ta thấy rằng điện áp ở cuộn nối tiếp cao hơn bình thường cho phép công suất lớn hơn chạy trên đường dây nghĩa là: Thay vì lắp máy biến áp thường ta lắp máy biến áp chuyển pha sẽ cho phép nâng cao điện áp cấp và đường dây mang tải nhiều hơn.</para>
+    <para id="id6426198">3.3.6. Máy biến áp ba cuộn dây.</para>
+    <para id="id6426205">Máy biến áp ba cuộn dây sử dụng trong những trường hợp cần cung cấp cho phụ tải ở hai cấp điện áp từ một cuộn dây cung cấp. Hai cuộn dây này gọi là cuộn thứ hai và cuộn thứ ba (hình 3.18). Cuộn thứ 3 ngoài mục đích trên còn có mục đích khác, chẳng hạn được nối vào tụ để chặn sóng bậc 3. Trên sơ đồ ta ký hiệu 11’ là cuộn sơ cấp (P), 22’ là cuộn thứ 2 (S), 33’ là cuộn thứ 3 (T).</para>
+    <para id="id6426221">’’PS’THình 3.18 : Máy biến áp ba cuộn dây</para>
+    <para id="id6426951">Các tham số đo được từ thí nghiệm là:</para>
+    <para id="id6426957">ZPS: Là tổng trở cuộn sơ cấp khi ngắn mạch cuộn 2 và hở mạch cuộn 3</para>
+    <para id="id6426976">ZPT: Là tổng trở cuộn sơ cấp khi ngắn mạch cuộn 3 và hở mạch cuộn 2 </para>
+    <para id="id6426995">Z’ST: Là tổng trở cuộn thứ cấp khi cuộn sơ cấp hở mạch và cuộn 3 ngắn mạch</para>
+    <para id="id6427018">Z’ST’ quy đổi về phía sơ cấp là: 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ST</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msup><m:mfenced open="" close=""><m:mfrac><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>P</m:mi></m:mrow></m:mstyle></m:msub><m:msub><m:mi>N</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>S</m:mi></m:mrow></m:mstyle></m:msub></m:mfrac></m:mfenced><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msup></m:mrow><m:mtext>.</m:mtext><m:mi/><m:mi>Z</m:mi><m:msub><m:mi>'</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ST</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "ST"} } = left ( {  {N rSub { size 8{P} } }  over  {N rSub { size 8{S} } } }  right ) rSup { size 8{2} }  "." `Z' rSub { size 8{ ital "ST"} } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id6427161">Sơ đồ tương đương của MBA ba cuộn dây hình 3.19 ZPS, ZPT, ZST, quy đổi về phía sơ cấp. Theo cách đo ngắn mạch ta có:</para>
+    <para id="id6427198">ZPS = ZP + ZS  (3.41)</para>
+    <para id="id6427244">ZPT = ZP + ZT  (3.42)</para>
+    <para id="id6427292">ZST = ZS + ZT  (3.43)</para>
+    <para id="id6427339">Trừ (3.42) đi (3.43) ta có:</para>
+    <para id="id6427344">ZPT - ZST = ZP - ZS  (3.44)</para>
+    <para id="id6427398">Từ (3.41) và (3.44) ta có:</para>
+    <para id="id6427404">ZP =1/2 (ZPS + ZPT -ZST)  (3.45)</para>
+    <para id="id6427457">ZS =1/2 (ZPS + ZST -ZPT)  (3.46)</para>
+    <para id="id6427510">ZT =1/2 (ZST + ZPT - ZPS)  (3.47)</para>
+    <para id="id6427563">ZpZSZT’Hình 3.19 : Sơ đồ tương đương của MBA ba cuộn dây</para>
+    <para id="id6428410">Bỏ qua tổng trở mạch rẽ nên nút đất q tách rời đầu cực 1 nối với nguồn cung cấp, đầu cực 2 và 3 nối đến tải, nếu cuộn 3 dùng để chặn sóng hài thì thả nổi.</para>
+    <para id="id6428421">3.3.7. Phụ tải:</para>
+    <para id="id6428426">Chúng ta nghiên cứu về phụ tải liên quan đến trào lưu công suất và ổn định. Điều quan trọng là phải biết sự thay đổi của công suất tác dụng và công suất phản kháng theo điện áp. Ở các nút điển hình các loại tải gồm có:</para>
+    <para id="id6428440">- Động cơ không đồng bộ 5070 %</para>
+    <para id="id6428463">- Nhiệt và ánh sáng 2030 %</para>
+    <para id="id6428486">- Động cơ đồng bộ 510 % </para>
+    <para id="id6428508">Để tính chính xác người ta dùng đặc tính P-V và Q-V của từng loại tải nhưng xử lý phân tích rất phức tạp. Vì vậy người ta đưa ra ba cách giới thiệu chính về tải dùng cho mục đích phân tích.</para>
+    <para id="id6428517"> - Giới thiệu theo công suất không đổi: Cả lượng MVA và MVAR đều bằng hằng số thường dùng để nghiên cứu trào lưu công suất.</para>
+    <para id="id6428532"> - Giới thiệu theo dòng điện không đổi: Dòng điện tải I trong trường hợp này được tính </para>
+    <para id="id6428543">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mi>I</m:mi>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mfrac>
+                      <m:mrow>
+                        <m:mi>P</m:mi>
+                        <m:mo stretchy="false">−</m:mo>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>jQ</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                      <m:mi>V</m:mi>
+                    </m:mfrac>
+                  </m:mrow>
+                  <m:mo stretchy="false">∣</m:mo>
+                  <m:mi>V</m:mi>
+                  <m:mo stretchy="false">∣</m:mo>
+                  <m:mi>∠</m:mi>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:mi>θ</m:mi>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:mi>Φ</m:mi>
+                  </m:mrow>
+                  <m:mo stretchy="false">)</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{I= {  {P -  ital "jQ"}  over  {V} }  \lline V \lline ∠ \( θ - Φ \) } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6428648">Ở đó V = |V|q và  = tan-1 (Q/P) là góc hệ số công suất, độ lớn của I được giữ không đổi.</para>
+    <para id="id6428687"> - Giới thiệu theo tổng trở không đổi: Đây là cách giới thiệu thường xuyên khi nghiên cứu ổn định nếu lượng MVA và MVAR đã biết và không đổi thì tổng trở tải tính như sau:</para>
+    <para id="id6428704">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mi>Z</m:mi>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mfrac>
+                      <m:mi>V</m:mi>
+                      <m:mi>I</m:mi>
+                    </m:mfrac>
+                  </m:mrow>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mfrac>
+                    <m:mrow>
+                      <m:mo stretchy="false">∣</m:mo>
+                      <m:mi>V</m:mi>
+                      <m:msup>
+                        <m:mo stretchy="false">∣</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>2</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msup>
+                    </m:mrow>
+                    <m:mrow>
+                      <m:mi>P</m:mi>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mstyle fontstyle="italic">
+                        <m:mrow>
+                          <m:mtext>jQ</m:mtext>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:mrow>
+                  </m:mfrac>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Z= {  {V}  over  {I} } = {  { \lline V \lline  rSup { size 8{2} } }  over  {P -  ital "jQ"} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6428803">Và tổng dẫn:</para>
+    <para id="id6428808">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mi>Y</m:mi>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mfrac>
+                      <m:mn>1</m:mn>
+                      <m:mi>Z</m:mi>
+                    </m:mfrac>
+                  </m:mrow>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mfrac>
+                    <m:mrow>
+                      <m:mi>P</m:mi>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mstyle fontstyle="italic">
+                        <m:mrow>
+                          <m:mtext>jQ</m:mtext>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:mrow>
+                    <m:mrow>
+                      <m:mo stretchy="false">∣</m:mo>
+                      <m:mi>V</m:mi>
+                      <m:msup>
+                        <m:mo stretchy="false">∣</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mn>2</m:mn>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msup>
+                    </m:mrow>
+                  </m:mfrac>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Y= {  {1}  over  {Z} } = {  {P -  ital "jQ"}  over  { \lline V \lline  rSup { size 8{2} } } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6428910">3.4. KẾT LUẬN:</para>
+    <para id="id6428915">Trong chương này ta xem xét các phần tử của hệ thống điện như đường dây truyền tải, biến áp, phụ tải. Mô hình hóa chúng trong hệ thống điện với trạng thái ổn định đủ để nghiên cứu các trạng thái cơ bản của hệ thống: Ngắn mạch, phân bố dòng chảy công suất, và ổn định quá độ.</para>
+  </content>
+</document>

@@ -1,0 +1,119 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Các ma trận mạng và phạm vi ứng dụng</title>
+  <metadata>
+  <md:content-id>m29877</md:content-id><md:title>Các ma trận mạng và phạm vi ứng dụng</md:title>
+  <md:abstract/>
+  <md:uuid>112c0be9-c206-4732-84f2-39e177231c0f</md:uuid>
+</metadata>
+
+<content>
+    <para id="id6706242">4.1. GIỚI THIỆU:</para>
+    <para id="id6706250">Sự trình bày rõ ràng chính xác phù hợp với mô hình toán học là bước đầu tiên trong giải tích mạng điện. Mô hình phải diễn tả được đặc điểm của các thành phần mạng điện riêng biệt như mối liên hệ chi phối giữa các thành phần trong mạng. Phương trình ma trận mạng cung cấp cho mô hình toán học những thuận lợi trong việc giải bằng máy tính số.</para>
+    <para id="id6706268">Các thành phần của ma trận mạng phụ thuộc vào việc chọn các biến một cách độc lập, có thể là dòng hoặc áp. Vì lẽ đó, các thành phần của ma trận mạng sẽ là tổng trở hay tổng dẫn.</para>
+    <para id="id6706285">Đặc điểm riêng của các thành phần mạng điện có thể được trình bày thuận lợi trong hình thức hệ thống ma trận gốc. Ma trận diễn tả được đặc điểm tương ứng của mỗi thành phần, không cung cấp nhiều thông tin liên quan đến kết nối mạng điện. Nó là cần thiết, vì vậy biến đổi hệ thống ma trận gốc thành ma trận mạng là diễn tả được các đặc tính quan hệ trong lưới điện.</para>
+    <para id="id6706309">Hình thức của ma trận mạng được dùng trong phương trình đặc tính phụ thuộc vào cấu trúc làm chuẩn là nút hay vòng. Trong cấu trúc nút làm chuẩn biến được chọn là nút áp và nút dòng. Trong cấu trúc vòng làm chuẩn biến được chọn là vòng điện áp và vòng dòng điện.</para>
+    <para id="id6706326">Sự tạo nên ma trận mạng thích hợp là phần việc tính toán của chương trình máy tính số cho việc giải bài toán hệ thống điện.</para>
+    <para id="id6706339">4.2. GRAPHS.</para>
+    <para id="id6706347">Để diễn tả cấu trúc hình học của mạng điện ta có thể thay thế các thành phần của mạng điện bằng các đoạn đường thẳng đơn không kể đặc điểm của các thành phần. Đường thẳng phân đoạn được gọi là nhánh và phần cuối của chúng được gọi là nút. Nút và nhánh nối liền với nhau nếu nút là phần cuối của mỗi nhánh. Nút có thể được nối với một hay nhiều nhánh.</para>
+    <para id="id6706372">Graph cho thấy quan hệ hình học nối liền giữa các nhánh của mạng điện. Tập hợp con của các graph là các nhánh. Graph được gọi là liên thông nếu và chỉ nếu có đường nối giữa mỗi cặp điểm với nhau. Mỗi nhánh của graph liên thông được ấn định hướng thì nó sẽ định theo một hướng nhất định. Sự biểu diễn của hệ thống điện và hướng tương ứng của graph trình bày trong hình 4.1. </para>
+    <para id="id6706390">Cây là một graph liên thông chứa tất cả các nút của graph nhưng không tạo thành một vòng kín. Các thành phần của cây được gọi là nhánh cây nó là tập hợp con các nhánh của graph liên thông đã chọn trước. Số nhánh cây b qui định cho mỗi cây là:</para>
+    <para id="id6706412">b = n - 1   (4.1)</para>
+    <para id="id6706438">Với: n là số nút của graph</para>
+    <para id="id6706447">GGG(a)34(b)6432157(c)Hình 4.1 : Mô tả hệ thống điện.(a) Sơ đồ một pha.(b) Sơ đồ thứ tự thuận.(c) Graph định hướng.21034210</para>
+    <para id="id6767987">Nhánh của graph liên thông không chứa trong cây được gọi là nhánh bù cây, tập hợp các nhánh này không nhất thiết phải liên thông với nhau được gọi là bù cây. Bù cây là phần bù của cây. Số nhánh bù cây l của graph liên thông có e nhánh là:</para>
+    <para id="id6768005">l = e - b </para>
+    <para id="id6768012">Từ phương trình (4.1) ta có </para>
+    <para id="id6768021">l = e - n + 1   (4.2) </para>
+    <para id="id6768049">Cây và bù cây tương ứng của graph cho trong hình 4.1c được trình bày trong hình 4.2</para>
+    <para id="id6768060">6432157Hình 4.2 : Cây và bù cây của graph liên thông định hướngNhánh câyNhánh bù câye = 7n = 5b = 4l = 341230</para>
+    <para id="id6789501">Nếu nhánh bù cây được cộng thêm vào cây thì kết quả graph bao gồm một đường kín được gọi là vòng. Mỗi nhánh bù cây được cộng thêm vào sẽ tạo thành một hay nhiều vòng. Vòng chỉ gồm có một nhánh bù cây độc lập thì gọi là vòng cơ bản. Bởi vậy, số vòng cơ bản đúng bằng số nhánh bù cây cho trong phương trình (4.2). Sự định hướng của vòng cơ bản được chọn giống như chiều của nhánh bù cây. Vòng cơ bản của graph cho trong hình 4.2 được trình bày trong hình 4.3.</para>
+    <para id="id6789529">7643215Hình 4.3 : Vòng cơ bản định hướng theo graph liên thông FGE40312</para>
+    <para id="id6810993">Vết cắt là tập hợp của các nhánh, nếu bỏ đi hoặc chia graph liên thông thành hai graph con liên thông. Nhóm vết cắt có thể chọn độc lập duy nhất nếu mỗi vết cắt chỉ bao gồm một nhánh cây. Vết cắt độc lập như vậy gọi là vết cắt cơ bản. Số vết cắt cơ bản đúng bằng số nhánh cây. Sự định hướng của vết cắt cơ bản được chọn giống như hướng của nhánh cây. Vết cắt cơ bản của graph cho trong hình 4.2 được trình bày trong hình 4.4</para>
+    <para id="id6811010">7643215Hình 4.4 : Vết cắt cơ bản định hướng theo graph liên thông BDCA01423</para>
+    <para id="id6832522">4.3. MA TRẬN THÊM VÀO.</para>
+    <section id="id-93846831174">
+      <title>4.3.1. Ma trận thêm vào nhánh - nút Â.</title>
+      <para id="id6832544">Sự liên hệ giữa nhánh và nút trong graph liên thông trình bày bởi ma trận thêm vào nhánh nút. Các thành phần của ma trận được trình bày như sau:</para>
+      <para id="id6832557">aịj = 1 : Nếu nhánh thứ i và nút thứ j có chiều hướng từ nhánh i vào nút j</para>
+      <para id="id6832570">aịj = -1: Nếu nhánh thứ i và nút thứ j có chiều hướng từ nhánh i ra khỏi nút j</para>
+      <para id="id6832583">aịj = 0 : Nếu nhánh thứ i và nút thứ j không có mối liên hệ với nhau.</para>
+      <para id="id6832597">Kích thước của ma trận là e x n, với e là số nhánh và n là số nút của graph. Ma trận thêm vào nhánh nút cho trong graph hình 4.2 trình bày như trên. Với: </para>
+      <para id="id6832613">Đ = 111-1-1-1-11-11-111-11234567en40123
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∑</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi>j</m:mi><m:mo stretchy="false">=</m:mo><m:mn>0</m:mn></m:mrow></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mn>4</m:mn></m:mrow></m:mstyle></m:munderover><m:msub><m:mi>a</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi>i</m:mi><m:mi/><m:mi>j</m:mi></m:mrow></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">=</m:mo><m:mn>0</m:mn></m:mrow><m:mi/><m:mrow><m:mi>i</m:mi><m:mo stretchy="false">=</m:mo><m:mn>1,</m:mn></m:mrow><m:mi/><m:mn>2,</m:mn><m:mi/><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mtext>.</m:mtext><m:mi/><m:mi>e</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Sum cSub { size 8{j=0} }  cSup { size 8{4} }  {a rSub { size 8{i`j} } } =0~~i=1,`2,` "."  "."  "." `e} {}</m:annotation></m:semantics></m:math></para>
+      <para id="id6833793">Các cột của ma trận Â là phụ thuộc tuyến tính. Vì vậy hạng của Â &lt; n.</para>
+    </section>
+    <section id="id-789487477893">
+      <title>4.3.2. Ma trận thêm vào nút A.</title>
+      <para id="id6833818">Các nút của graph liên thông có thể chọn làm nút qui chiếu. Nút qui chiếu có thể thay đổi, nó được xem như một nút trong graph có thể cân nhắc khi ấn định cụ thể một nút nào đó làm nút qui chiếu. Ma trận thu được từ ma trận Â bỏ đi cột tương ứng với nút chọn làm nút qui chiếu là ma trận nhánh - nút A, nó sẽ được gọi là ma trận nút. Kích thước của ma trận là e x (n-1) và hạng là n-1 = b. </para>
+      <para id="id6833841">Với: b là số nhánh cây của graph. Chọn nút 0 làm nút qui chiếu thể hiện trên graph trong hình 4.2.</para>
+      <para id="id6833853">nút1234567eA = -1-1-1-11-11-111-14123</para>
+      <para id="id6834769">Ma trận A là hình chữ nhật và là duy nhất. Nếu hàng của A sắp xếp theo một cây riêng biệt thì ma trận trên có thể phân chia thành các ma trận con Ab có kích thước b x (n-1) và At có kích thước là l x (n-1). Số hàng của ma trận Ab tương ứng với số nhánh cây và số hàng của ma trận At tương ứng với số nhánh bù cây. Ma trận phân chia của graph trên hình 4.2 được trình bày như sau:</para>
+      <para id="id6834786">nútnút1234567eA = -1-1-1-11-11-111-1e= AtCác nútAbNhánh câyNhánh bù cây4123</para>
+      <para id="id6835988">Ab là ma trận vuông không duy nhất với hạng (n -1).</para>
+      <para id="id6835997">4.3.3. Ma trận hướng đường - nhánh cây K:</para>
+      <para id="id6836006">Hướng của các nhánh cây đến các đường trong 1 cây được trình bày bằng ma trận hướng đường - nhánh cây. Với 1 đường được định hướng từ 1 nút qui chiếu. Các phần tử của ma trận này là:</para>
+      <para id="id6836022">kij = 1: Nếu nhánh cây i nằm trong đường từ nút j đến nút qui chiếu và được định hướng cùng hướng.</para>
+      <para id="id6836034">kij = -1: Nếu nhánh cây i nằm trong đường từ nút j đến nút qui chiếu nhưng được định hướng ngược hướng.</para>
+      <para id="id6836047">kij = 0: Nếu nhánh cây i không nằm trong đường từ nút j đến nút qui chiếu.</para>
+      <para id="id6836059">Với nút 0 là nút qui chiếu ma trận hướng đường - nhánh cây liên kết với cây được trình bày ở hình 4.2 có dạng dưới đây.</para>
+      <para id="id6836071">đường1234Nhánh câyK = -1-1-1-1-14123</para>
+      <para id="id6836685">Đây là ma trận vuông không duy nhất với cấp là (n-1). Ma trận hướng - đường nhánh cây liên hệ nhánh cây với các đường nhánh cây nối đến nút qui chiếu và ma trận Ab liên kết các nhánh cây với các nút. Vì vậy có tỉ lệ tương ứng 1:1 giữa các đường và các nút.</para>
+      <para id="id6836704">Ab.Kt = 1 (4.3)</para>
+      <para id="id6836726">Do đó: Kt = Ab-1  (4.4)</para>
+      <para id="id6836756">4.3.4. Ma trận vết cắt cơ bản B.</para>
+      <para id="id6836765">Liên hệ giữa nhánh với vết cắt cơ bản của graph liên thông được thể hiện trong ma trận vết cắt cơ bản B. Các thành phần của ma trận là.</para>
+      <para id="id6836778">bịj = 1 : Nếu nhánh thứ i và hướng cùng chiều với vết cắt cơ bản thứ j</para>
+      <para id="id6836794">bịj = -1 : Nếu nhánh thứ i và hướng ngược chiều với vết cắt cơ bản thứ j</para>
+      <para id="id6836806">bịj = 0 : Nếu nhánh thứ i không liên quan với vết cắt thứ j</para>
+      <para id="id6836821">Ma trận vết cắt cơ bản có kích thước là e x b của graph cho trên hình 4.4 là:</para>
+      <para id="id6836838">Ma trận B có thể phân chia thành các ma trận con Ub và Bt. Số hàng của ma trận Ub tương ứng với số nhánh cây và số hàng của ma trận Bt tương ứng với số nhánh bù cây. Ma trận phân chia được biểu diễn như sau: </para>
+      <para id="id6836863">Ma trận đơn vị Ub cho ta thấy quan hệ tương ứng của một nhánh cây với một vết cắt cơ bản..</para>
+      <para id="id6836874">Ma trận con Bt có thể thu được từ ma trận nút A. Liên hệ giữa nhánh bù cây với nút cho thấy bởi ma trận con At và giữa nhánh cây với nút là ma trận con Ab. Từ đây tương ứng quan hệ của một nhánh cây với một vết cắt cơ bản, Bt.Ab cho thấy quan hệ giữa các nhánh bù cây với các nút như sau:</para>
+      <para id="id6836892">Bt.Ab = At</para>
+      <para id="id6836900">Vì vậy </para>
+      <para id="id6836908">Bt = At .Ab-1</para>
+      <para id="id6836928">Theo phương trình (4.4) ta có </para>
+      <para id="id6836937">Ab-1 = Kt</para>
+      <para id="id6836953">Vì vậy ta có </para>
+      <para id="id6836960">Bt = At .Kt   (4.5)</para>
+      <para id="id6836997">4.3.5. Ma trận vết cắt tăng thêm
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="false">ˆ</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { hat  {B}}} {}</m:annotation></m:semantics></m:math>.</para>
+      <para id="id6837063">Vết cắt giả thiết được gọi là vết cắt ràng buộc có thể đưa vào sau từng bước để số vết cắt đúng bằng số nhánh. Mỗi vết cắt ràng buộc chỉ gồm một nhánh bù cây của graph liên thông. Vết cắt ràng buộc của graph cho trên hình 4.4 được trình bày trong hình 4.5.</para>
+      <para id="id6837081">7Vết cắt ràng buộcG643215Hình 4.5 : Vết cắt cơ bản và ràng buộc định hướng theo graph liên thông BDCAVết cắt cơ bảnFE41230</para>
+      <para id="id6858884">Ma trận vết cắt tăng thêm có hình thức biểu diễn như ma trận vết cắt cơ bản cộng thêm số cột của vết cắt ràng buộc. Vết cắt ràng buộc được định hướng phụ thuộc vào hướng của nhánh bù cây. Ma trận vết cắt tăng thêm của graph trình bày trên hình 4.5 là ma trận
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="false">ˆ</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { hat  {B}}} {}</m:annotation></m:semantics></m:math> như sau:</para>
+      <para id="id6858960"> 1111-1111-11-11111234567eeABCDEFGVết cắt cơ bảnVết cắt giả tạo</para>
+      <para id="id6860144"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="false">ˆ</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { hat  {B}}} {}</m:annotation></m:semantics></m:math>: Là ma trận vuông có kích thước e x e và không duy nhất. Ma trận
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="false">ˆ</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { hat  {B}}} {}</m:annotation></m:semantics></m:math> có thể phân chia như sau:</para>
+      <para id="id6860265">1111-1111-11-11111234567eeABCD EFGVết cắt cơ bảnVết cắt giả tạoe0UtUbBtNhánh câyNhánh bù câye=Vết cắt cơ bảnVết cắt giả tạo</para>
+      <para id="id6861868">4.3.6. Ma trận thêm vào vòng cơ bản C.</para>
+      <para id="id6861876">Tác động của nhánh cây với vòng cơ bản của graph liên thông thể hiện bởi ma trận vòng cơ bản. Thành phần của ma trận là:</para>
+      <para id="id6861889">cịj = 1 : Nếu nhánh cây thứ i và hướng cùng chiều với vòng cơ bản thứ j</para>
+      <para id="id6861902">cịj = -1: Nếu nhánh cây thứ i và hướng ngược chiều với vòng cơ bản thứ j</para>
+      <para id="id6861915">cịj = 0 : Nếu nhánh cây thứ i không liên quan với vòng cơ bản thứ j</para>
+      <para id="id6861927">Ma trận vòng cơ bản có kích thước e x l theo graph cho trên hình 4.3 như sau:</para>
+      <para id="id6861938">l1234567eEFGC = 1-1-1-11111Vòng cơ bản</para>
+      <para id="id6862662">Ma trận C có thể phân chia thành các ma trận con Cb và Ut. Số hàng của ma trận Cb tương ứng với số nhánh cây và số hàng của ma trận Ut tương ứng với số nhánh bù cây. Ma trận phân chia như sau:</para>
+      <para id="id6862678">l1234567eEFGC = 1-1-1-11111Vòng cơ bảnlNhánh câyNhánh bù câye=CbUtVòng cơ bản</para>
+      <para id="id6863686">Ma trận đơn vị Ut cho thấy một nhánh bù cây tương ứng với một vòng cơ bản.</para>
+      <para id="id6863697">4.3.6. Ma trận số vòng tăng thêm
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="false">ˆ</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { hat  {C}}} {}</m:annotation></m:semantics></m:math>.</para>
+      <para id="id6863764">Số vòng cơ bản trong graph liên thông bằng số nhánh bù cây. Để có tổng số vòng bằng số nhánh, thêm vào (e-l) vòng, tương ứng với b nhánh cây, gọi là vòng hở. Vòng hở được vẽ bên các nút nối bởi nhánh cây. Vòng hở của graph cho trên hình 4.3 được trình bày trong hình 4.6. Hướng của vòng hở được xác định theo như hướng của nhánh cây.</para>
+      <para id="id6863786">Ma trận vòng tăng thêm có hình thức nằm bên cạnh ma trận vòng cơ bản, các cột của nó biểu diễn mối quan hệ giữa các nhánh với vòng hở. Ma trận của graph trình bày trong hình 4.6 được biểu diễn dưới đây.</para>
+      <para id="id6863803"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="false">ˆ</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { hat  {C}}} {}</m:annotation></m:semantics></m:math>: Là ma trận vuông, kích thước e x e và không duy nhất. </para>
+      <para id="id6863866">1111-1111-1-1-11111234567eeABCD EFGVòng hởVòng cơ bản</para>
+      <para id="id6865048">Ma trận 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="false">ˆ</m:mo></m:mover></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { hat  {C}}} {}</m:annotation></m:semantics></m:math> có thể phân chia như sau:</para>
+      <para id="id6865115">1111-1111-1-1-11111234567eeABCD EFGVòng hởVòng cơ bản=eCbUtUb0Nhánh câyNhánh bù câyeVòng hởVòng cơ bản</para>
+      <para id="id6866717">4.4. MẠNG ĐIỆN GỐC.</para>
+      <para id="id6866725">Thành phần của mạng điện là tổng trở và tổng dẫn được trình bày trong hình 4.7. Đặc tính của các thành phần có thể biểu diễn trong mỗi công thức. Biến và tham số là:</para>
+      <para id="id6866740">vpq: Là hiệu điện thế của nhánh p-q</para>
+      <para id="id6866749">epq: Là nguồn áp mắc nối tiếp với nhánh p-q</para>
+      <para id="id6866758">ipq: Là dòng điện chạy trong nhánh p-q</para>
+      <para id="id6866767">jpq: Là nguồn dòng mắc song song với nhánh p-q</para>
+      <para id="id6866776">zpq: Là tổng trở riêng của nhánh p-q</para>
+      <para id="id6866785">ypq: Là tổng dẫn riêng của nhánh p-q</para>
+      <para id="id6866794">Mỗi một nhánh có hai biến vpq và ipq. Trong trạng thái ổn định các biến và tham số của nhánh zpq và ypq là một số thực đối với dòng điện một chiều và là một số phức đối với dòng điện xoay chiều.</para>
+    </section>
+  </content>
+</document>

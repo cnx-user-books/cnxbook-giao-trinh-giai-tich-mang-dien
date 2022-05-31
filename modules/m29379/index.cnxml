@@ -1,0 +1,2590 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Các thuật toán dùng cho việc thành lập những ma trận mạng</title>
+  <metadata>
+  <md:content-id>m29379</md:content-id><md:title>Các thuật toán dùng cho việc thành lập những ma trận mạng</md:title>
+  <md:abstract/>
+  <md:uuid>5c20fb8e-a653-446b-a358-65f11c59396c</md:uuid>
+</metadata>
+
+<content>
+    <para id="id6721640">5.1. GIỚI THIỆU.</para>
+    <para id="id6721645">Những phương pháp trình bày trong các mục trên đòi hỏi một sự chuyển đổi và đảo ngược những ma trận để có được những ma trận mạng. Một phương pháp thay thế dựa trên một thuật toán có thể được dùng để thành lập trực tiếp ma trận tổng trở nút từ những thông số hệ thống và số nút đã được mã hoá. Nguyên tắc của thuật toán là thành lập ma trận tổng trở nút theo từng bước, mô phỏng cấu trúc của mạng bằng cách thêm vào từng nhánh một. Một ma trận được thành lập cho mạng riêng được biểu thị sau khi mỗi phần tử được nối với mạng.</para>
+    <para id="id6721674">Ngoài ra, một thuật toán được biểu thị để chuyển hóa ma trận tổng dẫn vòng từ ma trận tổng trở nút đã định.</para>
+    <para id="id6721685">Các phương trình mạng:</para>
+    <para id="id6721690">INút = YNút .ENút</para>
+    <para id="id6721696">ENút = ZNút .INút</para>
+    <para id="id6721702">YNút = At .y. A</para>
+    <para id="id6721720">ZNút = (YNút)-1</para>
+    <para id="id6721733">5.2. XÁC ĐỊNH MA TRẬN YNÚT BẰNG PHƯƠNG PHÁP TRỰC TIẾP.</para>
+    <para id="id6721740">Gọi Ei, Ej, Ek là điện áp tại các nút khi bơm một dòng vào nút i.</para>
+    <para id="id6721771">Ij = 0; 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mo stretchy="false">∀</m:mo></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ forall } {}</m:annotation></m:semantics></m:math> j 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> i</para>
+    <para id="id6721886">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>I</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>i</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:munder>
+                          <m:mo stretchy="false">∑</m:mo>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mi>j</m:mi>
+                                <m:mo stretchy="false">≠</m:mo>
+                                <m:mi>i</m:mi>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:munder>
+                        <m:mrow>
+                          <m:mo stretchy="false">(</m:mo>
+                          <m:msub>
+                            <m:mi>y</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>iij</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mtext>.</m:mtext>
+                          <m:msub>
+                            <m:mi>E</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mi>i</m:mi>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                      <m:mo stretchy="false">+</m:mo>
+                      <m:mrow>
+                        <m:munder>
+                          <m:mo stretchy="false">∑</m:mo>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mi>j</m:mi>
+                                <m:mo stretchy="false">≠</m:mo>
+                                <m:mi>i</m:mi>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:munder>
+                        <m:mrow>
+                          <m:mo stretchy="false">(</m:mo>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>E</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mi>i</m:mi>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:msub>
+                              <m:mi>E</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mi>j</m:mi>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                          </m:mrow>
+                          <m:mo stretchy="false">)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:msub>
+                    <m:mi>y</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>ij</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{i} } = Sum cSub { size 8{j &lt;&gt; i} }  { \( y rSub { size 8{ ital "iij"} }  "." E rSub { size 8{i} }  \) } + Sum cSub { size 8{j &lt;&gt; i} }  { \( E rSub { size 8{i} }  - E rSub { size 8{j} }  \) } y rSub { size 8{ ital "ij"} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6722083">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mi/>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:munder>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>j</m:mi>
+                              <m:mo stretchy="false">≠</m:mo>
+                              <m:mi>i</m:mi>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:munder>
+                      <m:mrow>
+                        <m:mo stretchy="false">(</m:mo>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>iij</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mtext>.</m:mtext>
+                        <m:msub>
+                          <m:mi>E</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>i</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">)</m:mo>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:munder>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>j</m:mi>
+                              <m:mo stretchy="false">≠</m:mo>
+                              <m:mi>i</m:mi>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:munder>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>ij</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>E</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mi>i</m:mi>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">−</m:mo>
+                          <m:mrow>
+                            <m:munder>
+                              <m:mo stretchy="false">∑</m:mo>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mrow>
+                                    <m:mi>j</m:mi>
+                                    <m:mo stretchy="false">≠</m:mo>
+                                    <m:mi>i</m:mi>
+                                  </m:mrow>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:munder>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>ij</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:msub>
+                                <m:mi>E</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mi>j</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{``= Sum cSub { size 8{j &lt;&gt; i} }  { \( y rSub { size 8{ ital "iij"} }  "." E rSub { size 8{i} }  \) } + Sum cSub { size 8{j &lt;&gt; i} }  {y rSub { size 8{ ital "ij"} } E rSub { size 8{i} }  -  Sum cSub { size 8{j &lt;&gt; i} }  {y rSub { size 8{ ital "ij"} } E rSub { size 8{j} } } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6722299">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mi/>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>E</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>i</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:munder>
+                          <m:mo stretchy="false">∑</m:mo>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mi>j</m:mi>
+                                <m:mo stretchy="false">≠</m:mo>
+                                <m:mi>i</m:mi>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:munder>
+                        <m:mrow>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>y</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mstyle fontstyle="italic">
+                                    <m:mrow>
+                                      <m:mtext>iij</m:mtext>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mo stretchy="false">+</m:mo>
+                            <m:mrow>
+                              <m:munder>
+                                <m:mo stretchy="false">∑</m:mo>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mrow>
+                                      <m:mi>j</m:mi>
+                                      <m:mo stretchy="false">≠</m:mo>
+                                      <m:mi>i</m:mi>
+                                    </m:mrow>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:munder>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>ij</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                            </m:mrow>
+                          </m:mrow>
+                          <m:mo stretchy="false">)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                      <m:mo stretchy="false">+</m:mo>
+                      <m:mrow>
+                        <m:munder>
+                          <m:mo stretchy="false">∑</m:mo>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mi>j</m:mi>
+                                <m:mo stretchy="false">≠</m:mo>
+                                <m:mi>i</m:mi>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:munder>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>E</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mi>j</m:mi>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">(</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>ij</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mo stretchy="false">)</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{`=E rSub { size 8{i} }  \(  Sum cSub { size 8{j &lt;&gt; i} }  {y rSub { size 8{ ital "iij"} } + Sum cSub { size 8{j &lt;&gt; i} }  {y rSub { size 8{ ital "ij"} } }  \) } + Sum cSub { size 8{j &lt;&gt; i} }  {E rSub { size 8{j} }  \( }  - y rSub { size 8{ ital "ij"} }  \) } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6722512">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mi/>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>E</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>i</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>ii</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:munder>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>j</m:mi>
+                              <m:mo stretchy="false">≠</m:mo>
+                              <m:mi>i</m:mi>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:munder>
+                      <m:msub>
+                        <m:mi>y</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>ij</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mo stretchy="false">)</m:mo>
+                  <m:mtext>.</m:mtext>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:munder>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>j</m:mi>
+                              <m:mo stretchy="false">≠</m:mo>
+                              <m:mi>i</m:mi>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:munder>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>E</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>j</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">(</m:mo>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>ij</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mo stretchy="false">)</m:mo>
+                  <m:mi/>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{```=E rSub { size 8{i} }  \( y rSub { size 8{ ital "ii"} } + Sum cSub { size 8{j &lt;&gt; i} }  {y rSub { size 8{ ital "ij"} } }  \)  "."  Sum cSub { size 8{j &lt;&gt; i} }  {E rSub { size 8{j} }  \( }  - y rSub { size 8{ ital "ij"} }  \) ``} {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6722701">Ta có:</para>
+    <para id="id6722706">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>Y</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>ii</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:mo stretchy="false">∑</m:mo>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>y</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>iij</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">+</m:mo>
+                      <m:mrow>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>y</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>ij</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">=</m:mo>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mi>y</m:mi>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mstyle fontstyle="italic">
+                                    <m:mrow>
+                                      <m:mtext>ii</m:mtext>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mo stretchy="false">+</m:mo>
+                            <m:mrow>
+                              <m:mo stretchy="false">∑</m:mo>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>ij</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{ ital "ii"} } = Sum {y rSub { size 8{ ital "iij"} } + Sum {y rSub { size 8{ ital "ij"} } =y rSub { size 8{ ital "ii"} } + Sum {y rSub { size 8{ ital "ij"} } } } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6722860">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>Y</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>ij</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>ij</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{ ital "ij"} } = - y rSub { size 8{ ital "ij"} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6722944">Do đó:</para>
+    <para id="id6722948">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>I</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>i</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>Y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>ii</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>E</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>i</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:munder>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>j</m:mi>
+                              <m:mo stretchy="false">≠</m:mo>
+                              <m:mi>i</m:mi>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:munder>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>Y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>ij</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>E</m:mi>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mi>j</m:mi>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">=</m:mo>
+                          <m:mrow>
+                            <m:mo stretchy="false">∑</m:mo>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>Y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>ij</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:msub>
+                                <m:mi>E</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mi>j</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{I rSub { size 8{i} } =Y rSub { size 8{ ital "ii"} }  "." E rSub { size 8{i} } + Sum cSub { size 8{j &lt;&gt; i} }  {Y rSub { size 8{ ital "ij"} } E rSub { size 8{j} } = Sum {Y rSub { size 8{ ital "ij"} } E rSub { size 8{j} } } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6723127">Vậy : YNút là ma trận có các thành phần trên đường chéo chính là Yii thành phần ngoài đường chéo là Yij.</para>
+    <para id="id6723136">Chú ý: Nếu có tương hổ thì chúng ta phải tính thêm các thành phần tương hỗ.</para>
+    <para id="id6723144">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>Y</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>ii</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>iij</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mrow>
+                          <m:mo stretchy="false">∑</m:mo>
+                          <m:mrow>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>ij</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mo stretchy="false">+</m:mo>
+                              <m:mrow>
+                                <m:mo stretchy="false">∑</m:mo>
+                                <m:msub>
+                                  <m:mi>y</m:mi>
+                                  <m:mstyle fontsize="8pt">
+                                    <m:mrow>
+                                      <m:mrow>
+                                        <m:mstyle fontstyle="italic">
+                                          <m:mrow>
+                                            <m:mtext>ij</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                        <m:mi>,</m:mi>
+                                        <m:mi/>
+                                        <m:mstyle fontstyle="italic">
+                                          <m:mrow>
+                                            <m:mtext>rs</m:mtext>
+                                          </m:mrow>
+                                        </m:mstyle>
+                                      </m:mrow>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                </m:msub>
+                              </m:mrow>
+                            </m:mrow>
+                            <m:mo stretchy="false">=</m:mo>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mi>y</m:mi>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>ii</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mo stretchy="false">+</m:mo>
+                              <m:mrow>
+                                <m:mo stretchy="false">∑</m:mo>
+                                <m:msub>
+                                  <m:mi>y</m:mi>
+                                  <m:mstyle fontsize="8pt">
+                                    <m:mrow>
+                                      <m:mstyle fontstyle="italic">
+                                        <m:mrow>
+                                          <m:mtext>ij</m:mtext>
+                                        </m:mrow>
+                                      </m:mstyle>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                </m:msub>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:msub>
+                        <m:mi>y</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>ij</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                              <m:mi>,</m:mi>
+                              <m:mi/>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>rs</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{ ital "ii"} } = Sum {y rSub { size 8{ ital "iij"} } + Sum {y rSub { size 8{ ital "ij"} } + Sum {y rSub { size 8{ ital "ij",` ital "rs"} } } =y rSub { size 8{ ital "ii"} } + Sum {y rSub { size 8{ ital "ij"} } } } } + Sum {y rSub { size 8{ ital "ij",` ital "rs"} } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6723374">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>Y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>ij</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mo stretchy="false">(</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>ij</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mi>,</m:mi>
+                            <m:mi/>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>ij</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>ij</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">)</m:mo>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Y rSub { size 8{ ital "ij"} } = -  \( y rSub { size 8{ ital "ij",` ital "ij"} } + Sum {y rSub { size 8{ ital "ij", ital "rs"} }  \) } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6723516">5.3. THUẬT TOÁN ĐỂ THÀNH LẬP MA TRẬN TỔNG TRỞ NÚT:</para>
+    <para id="id6723522">5.3.1. Phương trình biểu diễn của một mạng riêng.</para>
+    <para id="id6723530">Giả thiết rằng ma trận tổng trở nút ZNút được biết từ một mạng riêng m nút và một nút qui chiếu 0. Phương trình biểu diễn của mạng này cho trong hình (5.2) là: </para>
+    <para id="id6723548">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mover accent="true">
+                        <m:mi>E</m:mi>
+                        <m:mo stretchy="false">→</m:mo>
+                      </m:mover>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>Nuït</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>Z</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>Nuït</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>I</m:mi>
+                      <m:mo stretchy="false">→</m:mo>
+                    </m:mover>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>Nuït</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{ ital "Nuït"} } =Z rSub { size 8{ ital "Nuït"} }  "."  { vec  {I}} rSub { size 8{ ital "Nuït"} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id6723661">Trong đó: 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Nuït</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{ ital "Nuït"} } } {}</m:annotation></m:semantics></m:math>= m x 1 vectơ của các điện áp nút được đo đối với nút qui chiếu.</para>
+    <para id="id6723742"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>I</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Nuït</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {I}} rSub { size 8{ ital "Nuït"} } } {}</m:annotation></m:semantics></m:math>= m x 1 vectơ của các dòng điện được bơm vào nút khi một nhánh p - q được thêm vào mạng riêng, nó có thể là một nhánh cây hoặc một nhánh bù cây như cho ở hình (5.3)</para>
+    <list id="id6723823" list-type="enumerated">
+      <item>Sự thêm vào của một nhánh cây</item>
+      <item>Sự thêm vào của một nhánh bù cây</item>
+    </list>
+    <para id="id6723840">- Nếu p - q là một nhánh cây, một nút mới q được thêm vào mạng riêng và tạo thành ma trận tổng trở nút kích thước là (m + 1) x (m + 1). Các vectơ điện áp mới và dòng điện mới có kích thước là (m + 1) x 1. Để xác định ma trận tổng trở nút mới yêu cầu chỉ tính các phần tử trong hàng và cột mới.</para>
+    <para id="id6723855">- Nếu p - q là một nhánh bù cây, không có nút mới được thêm vào mạng riêng. Trong trường hợp này, kích thước của các ma trận trong phương trình biểu diễn được giữ nguyên, nhưng tất cả các phần tử của ma trận tổng trở nút phải được tính lại để bao hàm ảnh hưởng của nhánh bù cây được thêm vào.</para>
+    <para id="id6723894">12Mạng điệnqpm0<figure id="id6986303"><media id="id4470497" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure><figure id="id6986327"><media id="id4663836" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure>(a)Hệ qui chiếuHệ qui chiếu0qm12pMạng điện(b)<figure id="id6986588"><media id="id4634565" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure><figure id="id6986613"><media id="id5052765" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure><figure id="id6986637"><media id="id4631367" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure>Hình 5.3 : Sự biểu diễn của một mạng riêng với một nhánh được thêm vào Nhánh p-qNhánh p-q</para>
+    <para id="id6986766">5.3.2. Sự thêm vào của một nhánh cây.</para>
+    <para id="id6986773">Giả sử ma trận ZNút ban đầu có kích thước m x m, sau khi thêm 1 nhánh cây kích thước m ? m +1. Giả sử ta thêm vào 1 nút q ta có phương trình biểu diễn của mạng riêng với một nhánh cây p - q được thêm vào là như (5.1). Điều đó có nghĩa là mạng tồn tại các nhánh bị động cả hai phía.</para>
+    <para id="id6986797">12Mạng điệnqpi0<figure id="id7013124"><media id="id4626468" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure><figure id="id7013148"><media id="id4870254" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure><figure id="id7013172"><media id="id4924148" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure><figure id="id7013196"><media id="id4559230" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure>Hệ qui chiếuIi = 1Nhánh p-qvpqHình 5.4 : Dòng điện được bơm vào và sự tính toán các điện áp nút của ZqiEqEp</para>
+    <para id="id7013431">Do đó: Zqi = Ziq, với i = 1, 2, ..., m và có liên quan đến các nút của mạng riêng, nhưng không kể đến nút mới q.</para>
+    <para id="id7013440">Nhánh cây p - q thêm vào được xem là có hỗ cảm với một hoặc nhiều nhánh của mạng điện.</para>
+    <para id="id7013448"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>p</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>m</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>q</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced><m:mrow><m:mi/><m:mo stretchy="false">=</m:mo><m:mi/></m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1m</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1q</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>21</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2m</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2q</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">p1</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pm</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">m1</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>mm</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>mq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">q1</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>qm</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>qq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mfenced><m:mi/><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>p</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>m</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>q</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ left [ matrix {
+E rSub { size 8{1} }  {} ##
+E rSub { size 8{2} }  {} ##
+* {} ##
+E rSub { size 8{p} }  {} ##
+E rSub { size 8{m} }  {} ##
+E rSub { size 8{q} } 
+}  right ]`=` left [ matrix {
+Z rSub { size 8{"11"} }  {} # * {} # * {} # Z rSub { size 8{1m} }  {} # Z rSub { size 8{1q} }  {} ##
+Z rSub { size 8{"21"} }  {} # * {} # * {} # Z rSub { size 8{2m} }  {} # Z rSub { size 8{2q} }  {} ##
+* {} # * {} # * {} # * {} # * {} ##
+Z rSub { size 8{p1} }  {} # * {} # * {} # Z rSub { size 8{ ital "pm"} }  {} # Z rSub { size 8{ ital "pq"} }  {} ##
+Z rSub { size 8{m1} }  {} # * {} # * {} # Z rSub { size 8{ ital "mm"} }  {} # Z rSub { size 8{ ital "mq"} }  {} ##
+Z rSub { size 8{q1} }  {} # * {} # * {} # Z rSub { size 8{ ital "qm"} }  {} # Z rSub { size 8{ ital "qq"} } {}
+}  right ]`` left [ matrix {
+I rSub { size 8{1} }  {} ##
+I rSub { size 8{2} }  {} ##
+* {} ##
+I rSub { size 8{p} }  {} ##
+I rSub { size 8{m} }  {} ##
+I rSub { size 8{q} } 
+}  right ]} {}</m:annotation></m:semantics></m:math> (5.1)</para>
+    <para id="id7013999">Các phần tử Zqi có thể được xác định bằng cách bơm vào một dòng điện tại nút i và tính</para>
+    <para id="id7014008">điện áp tại nút q với điểm qui chiếu như trình bày ở hình (5.4). Giả sử ta bơm dòng I = 1A vào nút i (Ij = 0  j
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math>i) vì tất cả các dòng điện tại các nút khác bằng 0, từ phương trình (5.1) suy ra:</para>
+    <para id="id7014091">Eq = Zqi .Ii = Zqi </para>
+    <para id="id7014110">Tương tự như trên ta bơm vào các nút còn lại </para>
+    <para id="id7014120">E1 = Z1i .Ii</para>
+    <para id="id7014144">E2 = Z2i .Ii</para>
+    <para id="id7014169">...............</para>
+    <para id="id7014178">Ep = Zpi .Ii  (5.2)</para>
+    <para id="id7014200">................</para>
+    <para id="id7014205">Em = Zmi .Ii</para>
+    <para id="id7014210">Eq = Zqi .Ii</para>
+    <para id="id7014214">Cho Ii = 1 trong phương trình (5.2), Zqi có thể thu được trực tiếp bằng cách tính Eq</para>
+    <para id="id7014222">Các điện áp nút liên kết với nhánh thêm vào và điện áp qua nhánh được thể hiện bởi:</para>
+    <para id="id7014231">Eq = Ep - vpq  (5.3)</para>
+    <para id="id7014253">Các dòng điện trong các nhánh của mạng trong hình (5.4) được diễn tả trong các số hạng của các tổng dẫn ban đầu và các điện áp qua các nhánh là:</para>
+    <para id="id7014263">ipqirsvpqVrsypq,rsyrs,rsypq,pqyrs,pq=(5.4)</para>
+    <para id="id7014735">Trong phương trình (5.4), pq là một chỉ số cố định và liên quan với nhánh thêm vào, và rs là chỉ số biến đổi, liên quan đến các nhánh khác. Trong đó:</para>
+    <para id="id7014746">- ipq và vpq: Là dòng điện và điện áp chạy qua tương ứng với nhánh thêm vào.</para>
+    <para id="id7014753">- irs và vrs: Là các vectơ dòng điện và điện áp trong các nhánh của mạng riêng.</para>
+    <para id="id7014761">- ypq,pq: Là tổng dẫn riêng của nhánh thêm vào.</para>
+    <para id="id7014782">- ypq,rs : Là vectơ của các tổng dẫn tương hổ giữa nhánh thêm vào p - q và các nhánh r - s của mạng riêng.</para>
+    <para id="id7014802">- yrs,pq : Là vectơ chuyển vị của ypq,rs</para>
+    <para id="id7014824">- [yrs,rs]: Là ma trận tổng dẫn ban đầu của mạng riêng.</para>
+    <para id="id7014841">Dòng điện chạy trong nhánh cây thêm vào cho trong hình 5.4 là: </para>
+    <para id="id7014848">ipq = 0  (5.5)</para>
+    <para id="id7014879">Tuy nhiên, vpq không bằng 0 vì nhánh cây thêm vào hỗ cảm với một hoặc nhiều nhánh của mạng riêng. Ngoài ra:</para>
+    <para id="id7014888"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>r</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>s</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {v}} rSub { size 8{ ital "rs"} } = { vec  {E}} rSub { size 8{r} }  -  { vec  {E}} rSub { size 8{s} } } {}</m:annotation></m:semantics></m:math> (5.6)</para>
+    <para id="id7015029">Trong đó: Er và Es là các suất điện động tại các nút trong mạng riêng. Từ phương trình (5.5) ta có:</para>
+    <para id="id7015037">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>i</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pq</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mi>,</m:mi>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>v</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pq</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>y</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mtext>.</m:mtext>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mover accent="true">
+                              <m:mi>v</m:mi>
+                              <m:mo stretchy="false">→</m:mo>
+                            </m:mover>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">=</m:mo>
+                          <m:mn>0</m:mn>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{i rSub { size 8{ ital "pq"} } =y rSub { size 8{ ital "pq", ital "pq"} }  "." v rSub { size 8{ ital "pq"} } + Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } =0} } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7015234">Do đó:</para>
+    <para id="id7015238">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>v</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pq</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mfrac>
+                        <m:mn>1</m:mn>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mfrac>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mo stretchy="false">∑</m:mo>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mover accent="true">
+                          <m:mi>y</m:mi>
+                          <m:mo stretchy="false">→</m:mo>
+                        </m:mover>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>pq</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                              <m:mi>,</m:mi>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>rs</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mtext>.</m:mtext>
+                      <m:msub>
+                        <m:mover accent="true">
+                          <m:mi>v</m:mi>
+                          <m:mo stretchy="false">→</m:mo>
+                        </m:mover>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>rs</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{v rSub { size 8{ ital "pq"} } = -  {  {1}  over  {y rSub { size 8{ ital "pq", ital "pq"} } } }  Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7015407">Thế 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {v}} rSub { size 8{ ital "rs"} } } {}</m:annotation></m:semantics></m:math>từ phương trình (5.6) ta có:</para>
+    <para id="id7015486"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>v</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">−</m:mo><m:mfrac><m:mn>1</m:mn><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>r</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>s</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{v rSub { size 8{ ital "pq"} } = -  {  {1}  over  {y rSub { size 8{ ital "pq", ital "pq"} } } }  Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  \(  { vec  {E}} rSub { size 8{r} }  -  { vec  {E}} rSub { size 8{s} }  \) } } {}</m:annotation></m:semantics></m:math> (5.7)</para>
+    <para id="id7015700">Thế vpq vào trong phương trình (5.3) từ (5.7) ta có:</para>
+    <para id="id7015707">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>E</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>q</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>E</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mi>p</m:mi>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">+</m:mo>
+                      <m:mfrac>
+                        <m:mn>1</m:mn>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mfrac>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mo stretchy="false">∑</m:mo>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mover accent="true">
+                          <m:mi>y</m:mi>
+                          <m:mo stretchy="false">→</m:mo>
+                        </m:mover>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>pq</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                              <m:mi>,</m:mi>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>rs</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">(</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>E</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>r</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mo stretchy="false">−</m:mo>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>E</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>s</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mrow>
+                      <m:mo stretchy="false">)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{q} } =E rSub { size 8{p} } + {  {1}  over  {y rSub { size 8{ ital "pq", ital "pq"} } } }  Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  \(  { vec  {E}} rSub { size 8{r} }  -  { vec  {E}} rSub { size 8{s} }  \) } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7015911">Cuối cùng, thế Ep, Eq, 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>r</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{r} } } {}</m:annotation></m:semantics></m:math>và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>s</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{s} } } {}</m:annotation></m:semantics></m:math> từ phương trình (5.2) với Ii = 1, ta có:</para>
+    <para id="id7016051"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>qi</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pi</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:mfrac><m:mn>1</m:mn><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ri</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "qi"} } =Z rSub { size 8{ ital "pi"} } + {  {1}  over  {y rSub { size 8{ ital "pq", ital "pq"} } } }  Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  \(  { vec  {Z}} rSub { size 8{ ital "ri"} }  -  { vec  {Z}} rSub { size 8{ ital "rs"} }  \) } } {}</m:annotation></m:semantics></m:math> i = 1, 2, ....m i
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow/><m:mi>j</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; j} {}</m:annotation></m:semantics></m:math> (5.8)</para>
+    <para id="id7016348">Phần tử Zqq có thể được tính bằng cách bơm một dòng điện tại nút q và tính điện áp tại nút đó. Giả sử ta bơm dòng I = 1A vào nút q (Ij = 0  j 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> q) vì tất cả các dòng điện tại các nút khác bằng 0, từ phương trình (5.1) ta suy ra.</para>
+    <para id="id7016426">Eq = Zqq .Iq = Zqq </para>
+    <para id="id7016454">Tương tự như trên ta bơm vào các nút còn lại </para>
+    <para id="id7016462">E1 = Z1q­.Iq</para>
+    <para id="id7016486">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mo stretchy="false">⋮</m:mo>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ dotsvert } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7016534">Ep = Zpq.Iq  (5.9)</para>
+    <para id="id7016556">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mo stretchy="false">⋮</m:mo>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ dotsvert } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7016604">Em = Zmq.Iq</para>
+    <para id="id7016611">Trong phương trình (5.9), Zqq có thể thu được trực tiếp bằng cách tính Eq.</para>
+    <para id="id7016618">Tương tự ta có điện áp giữa 2 nút p và q là:</para>
+    <para id="id7016625">Eq = Ep - vpq</para>
+    <para id="id7016630">Điện áp tại các nút p và q được liên kết với nhau bởi phương trình (5.3) và dòng điện chạy qua nhánh thêm vào là:</para>
+    <para id="id7016637">ipq = -Iq = -1  (5.10)</para>
+    <para id="id7016659">Các điện áp qua các nhánh của mạng riêng được cho bởi phương trình (5.6) và các dòng điện chạy qua các nhánh đó cho bởi phương trình (5.4) và (5.10) ta có:</para>
+    <para id="id7016670">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>i</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pq</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mi>,</m:mi>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>v</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pq</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>y</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mtext>.</m:mtext>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mover accent="true">
+                              <m:mi>v</m:mi>
+                              <m:mo stretchy="false">→</m:mo>
+                            </m:mover>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">=</m:mo>
+                          <m:mrow>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{i rSub { size 8{ ital "pq"} } =y rSub { size 8{ ital "pq", ital "pq"} }  "." v rSub { size 8{ ital "pq"} } + Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } = - 1} } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7016867">Do đó:</para>
+    <para id="id7016872">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>v</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>pq</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mfrac>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:mo stretchy="false">−</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mrow>
+                        <m:mo stretchy="false">∑</m:mo>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mover accent="true">
+                              <m:mi>y</m:mi>
+                              <m:mo stretchy="false">→</m:mo>
+                            </m:mover>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mrow>
+                                  <m:mstyle fontstyle="italic">
+                                    <m:mrow>
+                                      <m:mtext>pq</m:mtext>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                  <m:mi>,</m:mi>
+                                  <m:mstyle fontstyle="italic">
+                                    <m:mrow>
+                                      <m:mtext>rs</m:mtext>
+                                    </m:mrow>
+                                  </m:mstyle>
+                                </m:mrow>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mtext>.</m:mtext>
+                          <m:msub>
+                            <m:mover accent="true">
+                              <m:mi>v</m:mi>
+                              <m:mo stretchy="false">→</m:mo>
+                            </m:mover>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mi>,</m:mi>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mfrac>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{v rSub { size 8{ ital "pq"} } = {  { - 1 -  Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } } }  over  {y rSub { size 8{ ital "pq", ital "pq"} } } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7017046">Thế 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {v}} rSub { size 8{ ital "rs"} } } {}</m:annotation></m:semantics></m:math>từ phương trình (5.6) ta có:</para>
+    <para id="id7017125"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>v</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:mn>1</m:mn></m:mrow><m:mo stretchy="false">−</m:mo><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:mo stretchy="false">(</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>r</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>s</m:mi></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{v rSub { size 8{ ital "pq"} } = {  { - 1 -  Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  \(  { vec  {E}} rSub { size 8{r} }  -  { vec  {E}} rSub { size 8{s} }  \) } }  over  {y rSub { size 8{ ital "pq", ital "pq"} } } } } {}</m:annotation></m:semantics></m:math> (5.11)</para>
+    <para id="id7017347">Thế vpq vào trong phương trình (5.11) từ (5.3) ta có:</para>
+    <para id="id7017353">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>E</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mi>q</m:mi>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>E</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mi>p</m:mi>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mfrac>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mrow>
+                          <m:mo stretchy="false">∑</m:mo>
+                          <m:mrow>
+                            <m:msub>
+                              <m:mover accent="true">
+                                <m:mi>y</m:mi>
+                                <m:mo stretchy="false">→</m:mo>
+                              </m:mover>
+                              <m:mstyle fontsize="8pt">
+                                <m:mrow>
+                                  <m:mrow>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>pq</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                    <m:mi>,</m:mi>
+                                    <m:mstyle fontstyle="italic">
+                                      <m:mrow>
+                                        <m:mtext>rs</m:mtext>
+                                      </m:mrow>
+                                    </m:mstyle>
+                                  </m:mrow>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:msub>
+                            <m:mtext>.</m:mtext>
+                            <m:mo stretchy="false">(</m:mo>
+                            <m:mrow>
+                              <m:msub>
+                                <m:mover accent="true">
+                                  <m:mi>E</m:mi>
+                                  <m:mo stretchy="false">→</m:mo>
+                                </m:mover>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mi>r</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                              <m:mo stretchy="false">−</m:mo>
+                              <m:msub>
+                                <m:mover accent="true">
+                                  <m:mi>E</m:mi>
+                                  <m:mo stretchy="false">→</m:mo>
+                                </m:mover>
+                                <m:mstyle fontsize="8pt">
+                                  <m:mrow>
+                                    <m:mi>s</m:mi>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:msub>
+                            </m:mrow>
+                            <m:mo stretchy="false">)</m:mo>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                      <m:msub>
+                        <m:mi>y</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>pq</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                              <m:mi>,</m:mi>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>pq</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mfrac>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{E rSub { size 8{q} } =E rSub { size 8{p} } + {  {1+ Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  \(  { vec  {E}} rSub { size 8{r} }  -  { vec  {E}} rSub { size 8{s} }  \) } }  over  {y rSub { size 8{ ital "pq", ital "pq"} } } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7017565">Cuối cùng, thế Ep, Eq, 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>r</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{r} } } {}</m:annotation></m:semantics></m:math>và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mi>s</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{s} } } {}</m:annotation></m:semantics></m:math> từ phương trình (5.9) với Iq = 1, ta có:</para>
+    <para id="id7017706"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>Z</m:mi><m:mrow><m:mmultiscripts><m:mtext/><m:mprescripts/><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>qq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle><m:none/></m:mmultiscripts><m:mo stretchy="false">=</m:mo><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z"" lSub { size 8{ ital "qq"} } =Z rSub { size 8{ ital "pq"} } + {  {1+ Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  \(  { vec  {Z}} rSub { size 8{ ital "rq"} }  -  { vec  {Z}} rSub { size 8{ ital "sq"} }  \) } }  over  {y rSub { size 8{ ital "pq", ital "pq"} } } } } {}</m:annotation></m:semantics></m:math> (5.12)</para>
+    <para id="id7017954">Nếu không có hỗ cảm giữa nhánh cây thêm vào và các nhánh khác của mạng riêng, thì các phần tử của ypq,rs bằng 0.</para>
+    <para id="id7017974">Và ta có:</para>
+    <para id="id7017979">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>Z</m:mi>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pq</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                          <m:mi>,</m:mi>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pq</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mfrac>
+                    <m:mn>1</m:mn>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mi>,</m:mi>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mfrac>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "pq", ital "pq"} } = {  {1}  over  {y rSub { size 8{ ital "pq", ital "pq"} } } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7018088">Từ phương trình (5.8), ta suy ra rằng:</para>
+    <para id="id7018094">Zqi = Zpi , i = 1, 2, ....m i
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow/><m:mi>j</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; j} {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7018159">Và từ phương trình (5.12), ta có:</para>
+    <para id="id7018164">Zqq = Zpq + Zpq,pq</para>
+    <para id="id7018177">Hơn nữa, nếu như không có hỗ cảm và p là nút qui chiếu </para>
+    <para id="id7018184">Zpi = 0, i = 1, 2,......m i
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow/><m:mi>q</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; q} {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7018248">Nên: Zqi = 0, i = 1, 2,......m i
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow/><m:mi>q</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; q} {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7018316">Tương tự: Zpq = 0</para>
+    <para id="id7018320">Và vì vậy: Zqq = Zpq,pq</para>
+    <para id="id7018333">5.3.3. Sự thêm vào của một nhánh bù cây.</para>
+    <para id="id7018340">Nếu nhánh p - q thêm vào là một nhánh bù cây, phương pháp để tính các phần tử của ma trận tổng trở nút là mắc nối tiếp với nhánh thêm vào một suất điện động el như cho trong hình 5.5.</para>
+    <para id="id7018352">Việc này tạo thành một nút giả l mà nút đó sẽ được loại trừ ra sau đó. Suất điện động el được chọn như thế nào mà dòng điện chạy qua nhánh bù cây thêm vào bằng 0.</para>
+    <para id="id7018364">lpEpYpq,pqelqEqipq =0</para>
+    <para id="id7018714">Giả sử ma trận ZNút ban đầu có kích thước m x m, khi ta thêm nhánh bù cây và tạo nút giả l thì ma trận ZNút có kích thước là (m+1) x (m+1).</para>
+    <para id="id7018724">12ipIi = 1q0Mạng điện<figure id="id7031436"><media id="id4556601" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure><figure id="id7031460"><media id="id5110907" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure>l<figure id="id7031506"><media id="id5053010" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="28"/></media></figure>vpqipqelHình 5.5 : Dòng điện bơm vào, suất điện động trong mạch nối tiếp với nhánh bù cây thêm vào và các điện áp nút cho việc tính toán của ZliEpElEqHệ qui chiếu </para>
+    <para id="id7031858">Phương trình đặt trưng cho mạng riêng với nhánh p-l thêm vào và mạch nối tiếp sức điện động el là .</para>
+    <para id="id7031866"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>E</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>m</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>e</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>l</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced><m:mrow><m:mi/><m:mo stretchy="false">=</m:mo><m:mi/></m:mrow><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>11</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1m</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1l</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mtext>12</m:mtext></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2l</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">m1</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>mm</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ml</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi fontstyle="italic">l1</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>lm</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd><m:mtd><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ll</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr></m:mtable></m:mfenced><m:mi/><m:mfenced open="[" close="]"><m:mtable><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>1</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>2</m:mn></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:mrow/><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>m</m:mi></m:mrow></m:mstyle></m:msub><m:mrow/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>l</m:mi></m:mrow></m:mstyle></m:msub></m:mtd></m:mtr></m:mtable></m:mfenced></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ left [ matrix {
+E rSub { size 8{1} }  {} ##
+E rSub { size 8{2} }  {} ##
+* {} ##
+E rSub { size 8{m} }  {} ##
+e rSub { size 8{l} } 
+}  right ]`=` left [ matrix {
+Z rSub { size 8{"11"} }  {} # * {} # * {} # Z rSub { size 8{1m} }  {} # Z rSub { size 8{1l} }  {} ##
+Z rSub { size 8{"12"} }  {} # * {} # * {} # * {} # Z rSub { size 8{2l} }  {} ##
+* {} # * {} # * {} # * {} # * {} ##
+Z rSub { size 8{m1} }  {} # * {} # * {} # Z rSub { size 8{ ital "mm"} }  {} # Z rSub { size 8{ ital "ml"} }  {} ##
+Z rSub { size 8{l1} }  {} # * {} # * {} # Z rSub { size 8{ ital "lm"} }  {} # Z rSub { size 8{ ital "ll"} } {}
+}  right ]`` left [ matrix {
+I rSub { size 8{1} }  {} ##
+I rSub { size 8{2} }  {} ##
+* {} ##
+I rSub { size 8{m} }  {} ##
+I rSub { size 8{l} } 
+}  right ]} {}</m:annotation></m:semantics></m:math> (5.13)</para>
+    <para id="id7032317">Vì: el = El - Eq</para>
+    <para id="id7032322">Phần tử Zli có thể được xác định bằng cách bơm vào một dòng điện tại nút i và tính điện áp tại nút l thuộc về nút q. Vì tất cả các dòng điện tại các nút khác bằng 0, từ phương trình (5.13) ta suy ra:</para>
+    <para id="id7032335">Ek = Zki .Ii = Zki </para>
+    <para id="id7032363">Tương tự như trên ta bơm vào các nút còn lại </para>
+    <para id="id7032371">E1 = Z1i .Ii</para>
+    <para id="id7032395">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mo stretchy="false">⋮</m:mo>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ dotsvert } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7032444">Ep = Zpi .Ii </para>
+    <para id="id7032462">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mo stretchy="false">⋮</m:mo>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ dotsvert } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7032510">el = Zli.Ii , i =1, 2, ....m  (5.14)</para>
+    <para id="id7032532">Cho Ii = 1 trong phương trình (5.14), Zli có thể thu được trực tiếp bằng cách tính el.</para>
+    <para id="id7032540">Suất điện động trong mạch nối tiếp là:</para>
+    <para id="id7032546">el = Ep - Eq - vpl  (5.15)</para>
+    <para id="id7032564">Vì dòng điện chạy qua nhánh bù cây thêm vào là:</para>
+    <para id="id7032570">ipq= 0</para>
+    <para id="id7032575">Nhánh p - l có thể được lý giải như một nhánh cây. Dòng điện trong nhánh này, ứng với các số hạn của tổng dẫn ban đầu và điện áp qua các nhánh là:</para>
+    <para id="id7032586">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>i</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:msub>
+                        <m:mi>i</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pl</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mi>,</m:mi>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pl</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>v</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pl</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>y</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mtext>.</m:mtext>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mover accent="true">
+                              <m:mi>v</m:mi>
+                              <m:mo stretchy="false">→</m:mo>
+                            </m:mover>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">=</m:mo>
+                          <m:mn>0</m:mn>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{i rSub { size 8{ ital "pq"} } =i rSub { size 8{ ital "pl"} } =y rSub { size 8{ ital "pq", ital "pl"} }  "." v rSub { size 8{ ital "pl"} } + Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } =0} } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7032796">Với:ypq,pq: Là tổng dẫn riêng của nhánh p - q</para>
+    <para id="id7032819">ypq,rs: Là tổng dẫn tương hổ của nhánh p - q với nhánh r - s</para>
+    <para id="id7032837">ipl = ipq = 0</para>
+    <para id="id7032843">Vì vậy:</para>
+    <para id="id7032848">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>v</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pl</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mfrac>
+                        <m:mn>1</m:mn>
+                        <m:msub>
+                          <m:mi>y</m:mi>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pl</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pl</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mfrac>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mo stretchy="false">∑</m:mo>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mover accent="true">
+                          <m:mi>y</m:mi>
+                          <m:mo stretchy="false">→</m:mo>
+                        </m:mover>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>pl</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                              <m:mi>,</m:mi>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>rs</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mtext>.</m:mtext>
+                      <m:msub>
+                        <m:mover accent="true">
+                          <m:mi>v</m:mi>
+                          <m:mo stretchy="false">→</m:mo>
+                        </m:mover>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>rs</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{v rSub { size 8{ ital "pl"} } = -  {  {1}  over  {y rSub { size 8{ ital "pl", ital "pl"} } } }  Sum { { vec  {y}} rSub { size 8{ ital "pl", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7033017">Do đó:
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {y}} rSub { size 8{ ital "pl", ital "rs"} } = { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} } } {}</m:annotation></m:semantics></m:math> và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{y rSub { size 8{ ital "pl", ital "pl"} } =y rSub { size 8{ ital "pq", ital "pq"} } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7033247">Nên ta có:</para>
+    <para id="id7033252"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>v</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">−</m:mo><m:mfrac><m:mn>1</m:mn><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:msub><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{v rSub { size 8{ ital "pl"} } = -  {  {1}  over  {y rSub { size 8{ ital "pq", ital "pq"} } } }  Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } } } {}</m:annotation></m:semantics></m:math> (5.16)</para>
+    <para id="id7033438">Thế lần lượt phương trình (5.16), (5.6) và (5.14) với Ii = 1 vào phương trình (5.15) ta có:</para>
+    <para id="id7033446"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>li</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pi</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>qi</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">+</m:mo><m:mfrac><m:mn>1</m:mn><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ri</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>si</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "li"} } =Z rSub { size 8{ ital "pi"} }  - Z rSub { size 8{ ital "qi"} } + {  {1}  over  {y rSub { size 8{ ital "pl", ital "pl"} } } }  Sum { { vec  {y}} rSub { size 8{ ital "pl", ital "rs"} }  \(  { vec  {Z}} rSub { size 8{ ital "ri"} }  -  { vec  {Z}} rSub { size 8{ ital "si"} }  \) } } {}</m:annotation></m:semantics></m:math> i = 1, 2, .....m,i
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow/><m:mi>l</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; l} {}</m:annotation></m:semantics></m:math> (5.17)</para>
+    <para id="id7033752">Phần tử Zll có thể được tính bằng cách bơm vào một dòng điện tại nút l với nút q là điểm nút qui chiếu và tính điện áp tại nút thứ l thuộc về nút q. Giả sử ta bơm dòng I = 1A vào nút l (Ij = 0  i 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow/></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; } {}</m:annotation></m:semantics></m:math> l), vì tất cả các dòng điện tại các nút khác bằng 0. Từ phương trình 5.13) ta suy ra:</para>
+    <para id="id7033829">Ek = ZklIl = Zkl k = 1, 2, .....m</para>
+    <para id="id7033846">Tương tự như trên ta bơm vào các nút còn lại.</para>
+    <para id="id7033854">E1 = Z1l.Il</para>
+    <para id="id7033878">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mo stretchy="false">⋮</m:mo>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ dotsvert } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7033926">Ep = Zpl.Il (5.18)</para>
+    <para id="id7033943">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mo stretchy="false">⋮</m:mo>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ dotsvert } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7033991">el = Zll.Il = Zll</para>
+    <para id="id7033995">Tương tự ta có điện áp giữa 2 nút p và l là:</para>
+    <para id="id7034001">el = Ep - Eq - vpl</para>
+    <para id="id7034006">Cho Il = 1 ở phương trình (5.18), Zll có thể thu được trực tiếp bằng cách tính el.</para>
+    <para id="id7034021">Dòng điện trong nhánh p - l là:</para>
+    <para id="id7034026">ipl = -Il = -1</para>
+    <para id="id7034032">Dòng điện này trong các số hạng của các tổng dẫn ban đầu và các điện áp qua các nhánh là:</para>
+    <para id="id7034040">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>i</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:msub>
+                        <m:mi>i</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pl</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mrow>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:msub>
+                      <m:mi>y</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pq</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mi>,</m:mi>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>pl</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mtext>.</m:mtext>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>v</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>pl</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">+</m:mo>
+                    <m:mrow>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>y</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>pq</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                                <m:mi>,</m:mi>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mtext>.</m:mtext>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mover accent="true">
+                              <m:mi>v</m:mi>
+                              <m:mo stretchy="false">→</m:mo>
+                            </m:mover>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mstyle fontstyle="italic">
+                                  <m:mrow>
+                                    <m:mtext>rs</m:mtext>
+                                  </m:mrow>
+                                </m:mstyle>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:msub>
+                          <m:mo stretchy="false">=</m:mo>
+                          <m:mrow>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{i rSub { size 8{ ital "pq"} } =i rSub { size 8{ ital "pl"} } =y rSub { size 8{ ital "pq", ital "pl"} }  "." v rSub { size 8{ ital "pl"} } + Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } = - 1} } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7034256">Với:ypq,pq: Là tổng dẫn riêng của nhánh p - q</para>
+    <para id="id7034275">ypq,rs: Là tổng dẫn tương hổ của nhánh p - q với nhánh r - s</para>
+    <para id="id7034293">Tương tự, vì:</para>
+    <para id="id7034298"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {y}} rSub { size 8{ ital "pl", ital "rs"} } = { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} } } {}</m:annotation></m:semantics></m:math> và 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{y rSub { size 8{ ital "pl", ital "pl"} } =y rSub { size 8{ ital "pq", ital "pq"} } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7034528">Nên:
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>v</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">−</m:mo><m:mfrac><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:msub><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mrow><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{v rSub { size 8{ ital "pl"} } = -  {  {1+ Sum { { vec  {y}} rSub { size 8{ ital "pl", ital "rs"} }  "."  { vec  {v}} rSub { size 8{ ital "rs"} } } }  over  {y rSub { size 8{ ital "pl", ital "pl"} } } } } {}</m:annotation></m:semantics></m:math> (5.19)</para>
+    <para id="id7034720">Thế lần lượt phương trình (5.19), (5.6) và (5.18) vào phương trình (5.15) với Il = 1 ta có:</para>
+    <para id="id7034728"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ll</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ql</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">+</m:mo><m:mfrac><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mrow><m:mo stretchy="false">∑</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>y</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rs</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">(</m:mo><m:mrow><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>rl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">−</m:mo><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>sl</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "ll"} } =Z rSub { size 8{ ital "pl"} }  - Z rSub { size 8{ ital "ql"} } + {  {1+ Sum { { vec  {y}} rSub { size 8{ ital "pq", ital "rs"} }  \(  { vec  {Z}} rSub { size 8{ ital "rl"} }  -  { vec  {Z}} rSub { size 8{ ital "sl"} }  \) } }  over  {y rSub { size 8{ ital "pq", ital "pq"} } } } } {}</m:annotation></m:semantics></m:math> (5.20)</para>
+    <para id="id7034987">Nếu nhánh thêm vào không hỗ cảm với các nhánh khác của mạng riêng, thì các phần tử ypq,rs = 0</para>
+    <para id="id7035009">Và: 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mfrac><m:mn>1</m:mn><m:msub><m:mi>y</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle><m:mi>,</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>pq</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{Z rSub { size 8{ ital "pq", ital "pq"} } = {  {1}  over  {y rSub { size 8{ ital "pq", ital "pq"} } } } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7035118">Từ phương trình (5.17) ta suy ra:</para>
+    <para id="id7035124">Zli = Zpi - Zqi, i = 1, 2, ....m i
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow/><m:mi>l</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ &lt;&gt; l} {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7035187">Và từ phương trình (5.20):</para>
+    <para id="id7035193">Zll = Zpl - Zql + Zpq,pq</para>
+    <para id="id7035206">Hơn nữa, nếu sự thêm vào đó mà không hỗ cảm và p là nút qui chiếu thì:</para>
+    <para id="id7035213">Zpi = 0, i = 1, 2, .....m 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>i</m:mi><m:mo stretchy="false">≠</m:mo><m:mi>l</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{i &lt;&gt; l} {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7035282">Và: Zli = -Zqi, i = 1, 2, .....m 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>i</m:mi><m:mo stretchy="false">≠</m:mo><m:mi>l</m:mi></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{i &lt;&gt; l} {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7035354">Và tương tự:: Zpl = 0</para>
+    <para id="id7035360">Vì vậy: Zll = - Zql + Zpq,pq</para>
+    <para id="id7035376">Các phần tử trong hàng và cột thứ l của ma trận tổng trở nút với mạng riêng thêm vào được tìm thấy từ các phương trình (5.17) và (5.20). Việc còn lại của tính toán đòi hỏi ma trận tổng trở nút bao hàm ảnh hưởng của nhánh bù cây thêm vào. Điều này có thể hoàn thành bằng cách biến đổi các phần tử Zij, trong đó i, j = 1, 2, .....m, và loại trừ hàng và cột l tương ứng với nút giả.</para>
+    <para id="id7035405">Nút giả được loại trừ bằng cách ngắn mạch nguồn suất điện động mạch nối tiếp el. Từ phương trình (5.13) ta có:</para>
+    <para id="id7035414"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mover accent="true"><m:mi>E</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Nuït</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Nuït</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mrow><m:msub><m:mover accent="true"><m:mi>I</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Nuït</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>il</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>l</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{ ital "Nuït"} } =Z rSub { size 8{ ital "Nuït"} }  "."  { vec  {I}} rSub { size 8{ ital "Nuït"} } + { vec  {Z}} rSub { size 8{ ital "il"} }  "." I rSub { size 8{l} } } {}</m:annotation></m:semantics></m:math> (5.21)</para>
+    <para id="id7035592">Và: 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:msub><m:mi>e</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>l</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>lj</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mrow><m:msub><m:mover accent="true"><m:mi>I</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>Nuït</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">+</m:mo><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ll</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:mtext>.</m:mtext><m:mrow><m:msub><m:mi>I</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>l</m:mi></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">=</m:mo><m:mn>0</m:mn></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{e rSub { size 8{l} } = { vec  {Z}} rSub { size 8{ ital "lj"} }  "."  { vec  {I}} rSub { size 8{ ital "Nuït"} } +Z rSub { size 8{ ital "ll"} }  "." I rSub { size 8{l} } =0} {}</m:annotation></m:semantics></m:math> i, j = 1, 2, ....m (5.22)</para>
+    <para id="id7035766">Giải Il từ phương trình (5.22) và thế vào (5.21):</para>
+    <para id="id7035772">
+      <m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mstyle fontsize="12pt">
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mover accent="true">
+                        <m:mi>E</m:mi>
+                        <m:mo stretchy="false">→</m:mo>
+                      </m:mover>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>Nuït</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mo stretchy="false">(</m:mo>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>Z</m:mi>
+                      <m:mstyle fontsize="8pt">
+                        <m:mrow>
+                          <m:mstyle fontstyle="italic">
+                            <m:mrow>
+                              <m:mtext>Nuït</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:mrow>
+                      </m:mstyle>
+                    </m:msub>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:mfrac>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>Z</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>il</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                        <m:mtext>.</m:mtext>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>Z</m:mi>
+                            <m:mo stretchy="false">→</m:mo>
+                          </m:mover>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mstyle fontstyle="italic">
+                                <m:mrow>
+                                  <m:mtext>lj</m:mtext>
+                                </m:mrow>
+                              </m:mstyle>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:msub>
+                      </m:mrow>
+                      <m:msub>
+                        <m:mi>Z</m:mi>
+                        <m:mstyle fontsize="8pt">
+                          <m:mrow>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>ll</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:msub>
+                    </m:mfrac>
+                  </m:mrow>
+                  <m:mo stretchy="false">)</m:mo>
+                  <m:mtext>.</m:mtext>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>I</m:mi>
+                      <m:mo stretchy="false">→</m:mo>
+                    </m:mover>
+                    <m:mstyle fontsize="8pt">
+                      <m:mrow>
+                        <m:mstyle fontstyle="italic">
+                          <m:mrow>
+                            <m:mtext>Nuït</m:mtext>
+                          </m:mrow>
+                        </m:mstyle>
+                      </m:mrow>
+                    </m:mstyle>
+                  </m:msub>
+                </m:mrow>
+              </m:mrow>
+            </m:mstyle>
+            <m:mrow/>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0"> size 12{ { vec  {E}} rSub { size 8{ ital "Nuït"} } = \( Z rSub { size 8{ ital "Nuït"} }  -  {  { { vec  {Z}} rSub { size 8{ ital "il"} }  "."  { vec  {Z}} rSub { size 8{ ital "lj"} } }  over  {Z rSub { size 8{ ital "ll"} } } }  \)  "."  { vec  {I}} rSub { size 8{ ital "Nuït"} } } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </para>
+    <para id="id7035975">Đây là phương trình biểu diễn của mạng riêng bao hàm nhánh bù cây. Từ đó suy ra yêu cầu của ma trận tổng trở nút là:</para>
+    <para id="id7035982">ZNút (được biến đổi) = ZNút (trước lúc loại trừ) - 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mfrac><m:mrow><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>il</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>lj</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ll</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  { { vec  {Z}} rSub { size 8{ ital "il"} }  "."  { vec  {Z}} rSub { size 8{ ital "lj"} } }  over  {Z rSub { size 8{ ital "ll"} } } } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7036110">Với :Bất kỳ phần tử của ZNút (được biến đổi) là:</para>
+    <para id="id7036119">Zij (được biến đổi) = Zij (trước lúc loại trừ) - 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mfrac><m:mrow><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>il</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub><m:mtext>.</m:mtext><m:msub><m:mover accent="true"><m:mi>Z</m:mi><m:mo stretchy="false">→</m:mo></m:mover><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>lj</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mrow><m:msub><m:mi>Z</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ll</m:mtext></m:mrow></m:mstyle></m:mrow></m:mstyle></m:msub></m:mfrac></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  { { vec  {Z}} rSub { size 8{ ital "il"} }  "."  { vec  {Z}} rSub { size 8{ ital "lj"} } }  over  {Z rSub { size 8{ ital "ll"} } } } } {}</m:annotation></m:semantics></m:math></para>
+    <para id="id7036246">BEGINVào số liệuNút qui chiếu k := 1Thêm nhánh câyDựa vào bảng số liệu nhập tổng trở ban đầu ZTính Z’NútThêm Nhánh bù câyDựa vào bảng số liệu nhập lại tổng trở ban đầu ZTính Z’’NútThêm nhánh câyk = eHình thành ma trận ZNútENDSSĐĐLƯU ĐỒ THÀNH LẬP MA TRẬN TỔNG TRỞ NÚTSĐ</para>
+  </content>
+</document>
