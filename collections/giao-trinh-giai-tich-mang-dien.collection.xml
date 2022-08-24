@@ -1,3 +1,21 @@
-<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">  <md:content-id>col10815</md:content-id>  <md:title>Giáo trình giải tích mạng điện</md:title>      <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>  <md:language>vi</md:language>              <md:uuid>1273ca95-aa36-4393-9d27-1fab808aaa2a</md:uuid>
-<md:slug>giao-trinh-giai-tich-mang-dien</md:slug>
-</metadata>  <col:content>          <col:module document="m29962"/>                            <col:module document="m30383"/>                            <col:module document="m30681"/>                            <col:module document="m29877"/>                            <col:module document="m29379"/>                            <col:module document="m30021"/>                            <col:module document="m30561"/>                            <col:module document="m30124"/>                    </col:content></col:collection>
+<?xml version="1.0"?>
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" authors="PGS. TS. L&#xEA; Kim H&#xF9;ng">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+    <md:content-id>col10815</md:content-id>
+    <md:title>Gi&#xE1;o tr&#xEC;nh gi&#x1EA3;i t&#xED;ch m&#x1EA1;ng &#x111;i&#x1EC7;n</md:title>
+    <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>
+    <md:language>vi</md:language>
+    <md:uuid>1273ca95-aa36-4393-9d27-1fab808aaa2a</md:uuid>
+    <md:slug>giao-trinh-giai-tich-mang-dien</md:slug>
+  </metadata>
+  <col:content>
+    <col:module document="m29962"/>
+    <col:module document="m30383"/>
+    <col:module document="m30681"/>
+    <col:module document="m29877"/>
+    <col:module document="m29379"/>
+    <col:module document="m30021"/>
+    <col:module document="m30561"/>
+    <col:module document="m30124"/>
+  </col:content>
+</col:collection>
